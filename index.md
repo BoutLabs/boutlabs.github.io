@@ -3,4 +3,4 @@ layout: default
 title: Bout Labs
 ---
 
-![Bout Labs](/images/bout-labs-circle.png){:class="img-responsive"}
+![Bout Labs](/assets/images/bout-labs-circle.png){:class="img-responsive"}
