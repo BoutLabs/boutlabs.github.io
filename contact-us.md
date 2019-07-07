@@ -4,4 +4,4 @@ title: Contact Us
 permalink: /contact-us/
 ---
 
-FPO
+![Coding](/assets/images/coder-at-computer.png){:class="img-fluid rounded mx-auto d-block"}
