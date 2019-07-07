@@ -8,7 +8,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.boutlabs.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: boutlabs
 github_username:  BoutLabs
-
+capsule_webform_key: e9dfc9a9-f758-4f73-87ea-0bc3f71107c1
 timezone: America/New_York
 
 # Build settings
