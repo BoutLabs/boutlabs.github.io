@@ -3,6 +3,13 @@
 # only Main files contain this front matter, not partials.
 ---
 
-@import "typography";
-@import "layout";
-@import "colors";
+$primary:         #2a3b97;
+//$secondary:     $gray-600 !default;
+//$success:       $green !default;
+//$info:          $cyan !default;
+//$warning:       $yellow !default;
+//$danger:        $red !default;
+//$light:         $gray-100 !default;
+//$dark:          $gray-800 !default;
+
+@import "bootstrap";
