@@ -25,6 +25,12 @@ defaults:
     values:
       image: true
 permalink: pretty
+# paginate: 10
+# paginate_path: "/blog/page:num/"
+
+collections:
+  services:
+    available: true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

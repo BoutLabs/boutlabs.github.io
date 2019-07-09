@@ -13,3 +13,19 @@ $primary:         #2a3b97;
 //$dark:          $gray-800 !default;
 
 @import "bootstrap";
+@import "blog";
+
+
+.flex-equal > * {
+  -ms-flex: 1;
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+
+.overflow-hidden { overflow: hidden; }
+

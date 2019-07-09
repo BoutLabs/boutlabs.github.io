@@ -1,0 +1,13 @@
+{%- comment -%}
+  Include vars:
+  post
+{%- endcomment -%}
+
+<div class="blog-post">
+  <a href="{{ post.url | absolute_url }}">
+    <h2 class="blog-post-title">{{ post.title }}</h2>
+  </a>
+  <p class="blog-post-meta">{{ post.date | date_to_long_string }}</a></p>
+
+  {{ post.excerpt }}
+</div>

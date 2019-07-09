@@ -1,0 +1,11 @@
+<div id="blog-categories-menu" class="nav-scroller py-1 mb-2">
+  <nav class="nav d-flex justify-content-between">
+    {%- for _cat in site.categories -%}
+      {%- assign _title = _cat[0] | default: 'Untitled' -%}
+      {%- assign _slug = _title | slugify -%}
+      <a class="category-title p-2 text-muted" href="?category={{- _slug -}}" id="{{- _slug -}}-link">
+        {{- _title -}}
+      </a>
+    {%- endfor -%}
+  </nav>
+</div>
