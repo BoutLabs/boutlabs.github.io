@@ -9,6 +9,7 @@ url: "http://www.boutlabs.com" # the base hostname & protocol for your site, e.g
 twitter_username: boutlabs
 github_username:  BoutLabs
 capsule_webform_key: e9dfc9a9-f758-4f73-87ea-0bc3f71107c1
+google_tracking_id: UA-143690680-1
 timezone: America/New_York
 
 # Build settings
