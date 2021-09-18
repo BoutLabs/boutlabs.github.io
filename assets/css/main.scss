@@ -3,7 +3,7 @@
 # only Main files contain this front matter, not partials.
 ---
 
-$primary:         #2a3b97;
+$primary: #2a3b97;
 //$secondary:     $gray-600 !default;
 //$success:       $green !default;
 //$info:          $cyan !default;
@@ -15,6 +15,18 @@ $primary:         #2a3b97;
 @import "bootstrap";
 @import "blog";
 
+body {
+  background-color: $primary;
+  color: $white;
+}
+
+.even-container {
+  background-color: $gray-500;
+}
+
+.odd-container {
+  background-color: $gray-200;
+}
 
 .flex-equal > * {
   -ms-flex: 1;
@@ -27,5 +39,6 @@ $primary:         #2a3b97;
   }
 }
 
-.overflow-hidden { overflow: hidden; }
-
+.overflow-hidden {
+  overflow: hidden;
+}
