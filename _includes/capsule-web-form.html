@@ -2,64 +2,58 @@
   <input type="hidden" name="FORM_ID" value="{{ site.capsule_webform_key }}">
   <input type="hidden" name="COMPLETE_URL" value='{{ "/thank-you" | absolute_url }}'>
   <input type="hidden" name="TAG" value="Website">
-  <!-- <input type="hidden" name="DEVELOPER" value="TRUE"/> -->
 
-  <div class="row">
-    <div class="col-md-6 col-sm-12">
-      <div class="form-group">
-        <label for="contactCompany">What is your project or company called?</label>
-        <input type="text" name="ORGANISATION_NAME" class="form-control" id="contactCompany" required>
-      </div>
-    </div>
+  {% if jekyll.environment == "development" %}
+    <input type="hidden" name="DEVELOPER" value="TRUE"/>
+  {% endif %}
 
-    <div class="col-md-6 col-sm-12">
-      <div class="form-group">
-        <label for="contactName">What&apos;s your name?</label>
-        <input type="text" name="PERSON_NAME" class="form-control" id="contactName" required>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6 col-sm-12">
-      <div class="form-group">
-        <label for="contactEmail">What&apos;s your email address?</label>
-        <input type="email" name="EMAIL" class="form-control" id="contactEmail" required>
-      </div>
-    </div>
-
-    <div class="col-md-6 col-sm-12">
-      <div class="form-group">
-        <label for="contactPhone">What is best phone number to reach you?</label>
-        <input type="text" name="PHONE" class="form-control" id="contactPhone">
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
+  <div class="row m-3">
     <div class="col">
-      <label for="contactReason">How can we help?</label>
+      <label for="contactReason" class="form-label">How can we help?</label>
       <textarea name="NOTE" class="form-control" id="contactReason"></textarea>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row m-3">
     <div class="col">
-      <div class="form-group">
-        <label for="contactBudget">What's your budget?</label>
-        <select class="form-control" id="contactBudget" name="CUSTOMFIELD[Budget]">
-          <option></option>
-          <option>Less than $25,000</option>
-          <option>$25,000 - $50,000</option>
-          <option>$50,000 - $100,000</option>
-          <option>Greater than $100,000</option>
-          <option>Currently researching</option>
-        </select>
-      </div>
+      <label for="contactCompany" class="form-label">What is your project or company called?</label>
+      <input type="text" name="ORGANISATION_NAME" class="form-control" id="contactCompany" required>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row m-3">
+    <div class="col">
+      <label for="contactBudget" class="form-label">What's your budget?</label>
+      <select class="form-select" id="contactBudget" name="CUSTOMFIELD[Budget]">
+        <option></option>
+        <option>Less than $25,000</option>
+        <option>$25,000 - $49,999</option>
+        <option>$50,000 - $99,999</option>
+        <option>$100,000 - $200,000</option>
+        <option>Greater than $200,000</option>
+        <option>Currently researching</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row m-3">
+    <div class="col-md-4">
+      <label for="contactName" class="form-label">Name</label>
+      <input type="text" name="PERSON_NAME" class="form-control" id="contactName" required>
+    </div>
+
+    <div class="col-md-4">
+      <label for="contactEmail" class="form-label">Email</label>
+      <input type="email" name="EMAIL" class="form-control" id="contactEmail" required>
+    </div>
+
+    <div class="col-md-4">
+      <label for="contactPhone" class="form-label">Telephone</label>
+      <input type="text" name="PHONE" class="form-control" id="contactPhone">
+    </div>
+  </div>
+
+  <div class="row m-3">
     <div class="col">
       <input class="btn btn-primary" type="submit" value="Contact Us">
     </div>
