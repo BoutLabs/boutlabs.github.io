@@ -6,6 +6,7 @@
 $primary: #2a3b97;
 $analog1: #2a5197;
 $analog2: #2a6797;
+$dark: #334;
 
 @import "bootstrap";
 @import "blog";
@@ -13,6 +14,10 @@ $analog2: #2a6797;
 body {
   background-color: $primary;
   color: $white;
+}
+
+p {
+  font-family: Adelle;
 }
 
 .even-container {
