@@ -2,25 +2,25 @@
 layout: default
 ---
 
-<div class="container-fluid p-0 mb-3">
-  <div class="row">
-    <div class="col">
-      <img src="/assets/images/contact-header.jpg" class="img-fluid" alt="Pen laying inside a book">
+<div class="container-wrapper even-container">
+  <div class="container p-0">
+    <div class="row align-items-center">
+      <div class="col">
+        <img src="/assets/images/contact-header.jpg" class="img-fluid" alt="" role="presentation">
+      </div>
     </div>
   </div>
 </div>
 
-<div class="container-fluid">
-  {{ content }}
+<div class="container-wrapper text-container">
+  <div class="container py-3">
+    {{ content }}
+  </div>
 </div>
 
-<div class="container-fluid">
-  <div class="mb-3">
+<div class="container-wrapper text-container">
+  <div class="container pb-5">
     <div>
-      <h5>How can we help?</h5>
-      <p>
-        Please let us know a little bit about your project and where you need some help. Someone from our team will reach out to schedule a time to talk.
-      </p>
       {% include capsule-web-form.html %}
     </div>
   </div>
