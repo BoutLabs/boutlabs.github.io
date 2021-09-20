@@ -4,7 +4,13 @@
 
   <body>
     {% include header.html %}
-    {{ content }}
+    <div class="container-wrapper text-container">
+      <div class="container py-3">
+        <div class="px-4 text-center">
+          {{ content }}
+        </div>
+      </div>
+    </div>
     {% include footer.html %}
     {% include body-javascript.html %}
   </body>
