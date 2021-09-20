@@ -3,18 +3,44 @@
 # only Main files contain this front matter, not partials.
 ---
 
-$primary:         #2a3b97;
-//$secondary:     $gray-600 !default;
-//$success:       $green !default;
-//$info:          $cyan !default;
-//$warning:       $yellow !default;
-//$danger:        $red !default;
-//$light:         $gray-100 !default;
-//$dark:          $gray-800 !default;
+$primary: #2a3b97;
+$analog1: #2a5197;
+$analog2: #2a6797;
+$dark: #334;
 
 @import "bootstrap";
 @import "blog";
 
+body {
+  background-color: $primary;
+  color: $white;
+}
+
+p {
+  font-family: Adelle;
+}
+
+.even-container {
+  background-color: $analog1; //tint-color($primary, 20%);
+}
+
+.odd-container {
+  background-color: $analog2; //tint-color($primary, 40%);
+}
+
+.text-container {
+  background-color: $white;
+  color: $dark;
+}
+
+.body-copy {
+  font-family: Adelle;
+}
+
+.icon-link {
+  font-weight: lighter;
+  text-decoration: none;
+}
 
 .flex-equal > * {
   -ms-flex: 1;
@@ -27,5 +53,6 @@ $primary:         #2a3b97;
   }
 }
 
-.overflow-hidden { overflow: hidden; }
-
+.overflow-hidden {
+  overflow: hidden;
+}
