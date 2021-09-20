@@ -1,28 +1,30 @@
 ---
-layout: default
+layout: hero
 ---
 
 {%- assign _posts = site.posts | sort: 'date' | reverse -%}
 
-<div class="container-fluid p-0 mb-3">
-  <div class="row">
-    <div class="col">
-      <img src="/assets/images/blog-header.jpg" class="img-fluid" alt="Layout sketches">
+<div class="container-wrapper even-container">
+  <div class="container-xl p-0">
+    <div class="row align-items-center">
+      <div class="col">
+        <img src="/assets/images/blog-header.jpg" class="img-fluid" alt="" role="presentation">
+      </div>
     </div>
   </div>
 </div>
 
-<div id="blog-posts" class="container-fluid">
-  <div class="row">
-    <div class="col blog-main">
-      {% for post in _posts %}
-        {% include blog-post.html post=post %}
-      {% endfor %}
+<div class="container-wrapper text-container">
+  <div id="blog-posts" class="container py-3">
+    <div class="row">
+      <div class="col blog-main">
+        {% for post in _posts %}
+          {% include blog-post.html post=post %}
+        {% endfor %}
+      </div>
     </div>
   </div>
+  <div class="container">
+    {{ content }}
+  </div>
 </div>
-
-<div class="container">
-  {{ content }}
-</div>
-
