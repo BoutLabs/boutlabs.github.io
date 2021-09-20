@@ -1,5 +1,5 @@
 ---
-layout: hero
+layout: default
 ---
 
 {%- assign _posts = site.posts | sort: 'date' | reverse -%}
@@ -19,7 +19,7 @@ layout: hero
     <div class="row">
       <div class="col blog-main">
         {% for post in _posts %}
-          {% include blog-post.html post=post %}
+        {% include blog-post.html post=post %}
         {% endfor %}
       </div>
     </div>
