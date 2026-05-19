@@ -6,7 +6,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   to software makes us the perfect complement to your team. We help you
   quickly make the right decisions to move your projects and your team forward.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://www.boutlabs.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.boutlabs.com" # the base hostname & protocol for your site
 twitter_username: boutlabs
 github_username:  BoutLabs
 capsule_webform_key: e9dfc9a9-f758-4f73-87ea-0bc3f71107c1

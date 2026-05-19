@@ -8,13 +8,13 @@ jobs:
 
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          cache-version: 0
+          cache-version: 1
 
       - name: HTMLProofer
         run: bundle exec rake test
