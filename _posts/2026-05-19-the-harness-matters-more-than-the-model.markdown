@@ -8,8 +8,6 @@ tags: [ai-enablement, technology, engineering]
 
 Two agents, same model, same prompt — one ships the change and reports back in 14 minutes, the other quietly idles in a worktree for an hour and leaves uncommitted files spread across two branches. The only difference between them is the harness. That experience has repeated enough across Bout Labs work over the last six months that we have stopped recommending coding tools by model and started recommending them by harness — Claude Code, Cursor, Codex CLI, Aider, Continue, and whatever ships next.
 
-This is the post that argues why.
-
 ## The model is not the bottleneck
 
 Most "which AI tool should I use" conversations spend 80% of their time on the model — Claude vs. GPT vs. Gemini, benchmarks, context window length, the latest evals. In practice, for actual day-to-day coding work, the frontier models are roughly interchangeable. They all hallucinate APIs that don't exist. They all write a perfectly reasonable function that calls a perfectly imaginary library. They all need to be told to read a file before they edit it.
