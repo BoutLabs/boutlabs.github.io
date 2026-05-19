@@ -33,6 +33,9 @@ permalink: pretty
 collections:
   services:
     available: true
+  projects:
+    output: true
+    permalink: /projects/:name/
 
 # Exclude from processing.
 # When set, this REPLACES Jekyll's default exclude list (which is why the
