@@ -35,13 +35,24 @@ collections:
     available: true
 
 # Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# When set, this REPLACES Jekyll's default exclude list (which is why the
+# Jekyll defaults are spelled out below).
+exclude:
+  # Jekyll defaults
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  # Repo-meta — cornerman + hypeman + top-level docs not meant for the public site
+  - AGENT_COMMS.log
+  - CLAUDE.md
+  - CONTRIBUTING.md
+  - README.md
+  - Rakefile
+  - docs/
+  - jtbd/
+  - marketing/
+  - scripts/

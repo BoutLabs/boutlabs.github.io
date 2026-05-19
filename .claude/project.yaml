@@ -1,0 +1,175 @@
+# Bout Labs Website — cornerman manifest
+#
+# The single source of project-specific values. Agents and skills read this
+# at the start of every run. Update it directly when something changes (e.g.,
+# a new milestone, a renamed branch); never bake project specifics into
+# agent prompts.
+#
+# Schema version: 1   (must match cornerman's `manifest_schema` in plugin.yaml)
+
+schema_version: 1
+
+project:
+  name: "Bout Labs Website"
+  repo: "BoutLabs/boutlabs.github.io"
+  default_branch: "master"               # also the release branch — GH Pages deploys from here
+  release_branch: ""                     # n/a; master is both default and release
+  description: "Bout Labs marketing site — Jekyll static site deployed via GitHub Pages from master."
+
+stack:
+  preset: "custom"                       # no Jekyll preset in cornerman v0.3
+  custom:
+    format: ""                           # no formatter wired up
+    lint: ""                             # html-proofer runs inside `rake test`
+    build: "bundle exec jekyll build"
+    test: "bundle exec rake test"        # builds + html-proofer
+
+# Tracker backend — state.sh dispatches here. Defaults to
+# github-projects-v2 when github.project_board.id is set; text-files
+# otherwise. linear backend lands in v0.3; pivotal driver planned.
+tracker:
+  backend: "text-files"                  # no GH Projects v2 board configured for this repo
+  # linear:
+  #   team_key: "ENG"
+  #   token_env_var: "LINEAR_API_KEY"
+
+github:
+  token_env_var: "GITHUB_LOGOS_LEKTON_ACCESS_TOKEN"   # Logos Lekton GitHub App install token
+  token_mint_script: "~/.claude/bin/mint-logos-token.sh"   # global mint script (per-machine, not per-repo)
+
+  # Org-level Issue Type node IDs (from GitHub's GraphQL `organization.issueTypes`)
+  issue_types:
+    feature: "IT_kwDOAwMIYM4AnvzW"
+    task: "IT_kwDOAwMIYM4AnvzP"
+    bug: "IT_kwDOAwMIYM4AnvzT"
+
+  # Projects v2 board for this repo's roadmap, if any
+  project_board:
+    id: ""                               # no board configured
+    status_field: ""
+    statuses:
+      backlog: ""
+      ready: ""
+      in_progress: ""
+      in_review: ""
+      done: ""
+
+  milestones: []                         # no open milestones at bootstrap
+
+ci:
+  required_checks:
+    - "checks"                           # name of the existing GH Actions workflow job
+  # Self-hosted runner info — agents use this to know about quirks like
+  # stateful filesystems, single-worker parallelism, etc.
+  self_hosted_runner:
+    name: ""                             # GitHub-hosted ubuntu-latest; Ruby/Jekyll is cheap
+    stateful: false
+
+merge_policy:
+  method: "squash"
+  require_closes_keyword: true
+  manual_only: true
+
+paths:
+  worktrees: ".claude/worktrees"
+  agent_comms: "AGENT_COMMS.log"
+  docs: "docs/"
+  jtbd: "jtbd/"
+  scripts: "scripts/"
+  lessons: "docs/LESSONS.md"
+
+product:
+  prd: ""                                # no PRD; site is small + marketing-driven
+  decision_log: "docs/DECISION_LOG.md"
+
+# Per-project feature flags — `lib/features.sh#has_feature` ANDs these
+# against the active stack preset's `capabilities:`. See
+# docs/capabilities.md for the named set.
+features:
+  qa_runner: false           # no QA runner; static-site html-proofer covers it
+  code_coverage: false       # n/a for a static site
+  signing: false             # n/a
+  preview_urls: false        # GH Pages serves master directly; no PR previews
+
+# cornerman-specific knobs
+cornerman:
+  passive_version_check: true
+  verification_on_drift: flag
+
+# ---------------------------------------------------------------------------
+# Marketing block (hypeman owns this; cornerman ignores it).
+# ---------------------------------------------------------------------------
+marketing:
+  profile: "custom"   # tech consulting / fractional CTO — no shipped hypeman profile fits cleanly yet
+
+  brand:
+    name: "Bout Labs"
+    voice_file: "marketing/VOICE.md"
+    style_file: "marketing/STYLE.md"
+    do_not_say:
+      - "revolutionary"
+      - "leverage"           # the verb; "leverage" as a noun in finance contexts is fine
+      - "synergy"
+      - "best-in-class"
+      - "world-class"
+      - "game-changer"
+      - "delight"
+      - "unlock"
+      - "10x"
+      - "rockstar"
+      - "ninja"
+      - "thought leader"
+      - "circle back"
+      - "move the needle"
+      - "low-hanging fruit"
+      - "at the end of the day"
+    house_examples:
+      - "index.html"          # current landing copy — corporate baseline, treat as floor not ceiling
+      - "~/.claude/CLAUDE.md#Jesse's Writing Style"   # Jesse's personal voice — pull toward this for blog/X/LinkedIn
+
+  audiences:
+    path: "marketing/icps/"
+    primary: "marketing/icps/non-technical-founder.md"
+
+  channels:
+    enabled: [blog, linkedin, x]
+    blog:
+      backend: "jekyll"
+      path: "_posts/"
+      requires_pr: true        # ships through cornerman's master-is-prod PR pipeline
+      approval_required: true
+    linkedin:
+      page_id: ""              # to be filled (Bout Labs company page ID)
+      token_env: "LINKEDIN_TOKEN"
+      approval_required: true
+    x:
+      handle: "@boutlabs"
+      account_id_env: "X_ACCOUNT_ID"
+      token_env: "X_BEARER_TOKEN"
+      approval_required: true
+
+  analytics:
+    backends: []   # GA still on UA-143690680-1 (sunset); GA4 migration pending — see docs/LESSONS.md
+
+  goals:
+    primary_metric: ""         # TBD — flagged at bootstrap; fill before running strategist
+    secondary: []
+    timeframe: "90-day"
+
+  publish_policy:
+    auto_publish: false
+    require_brand_review: true
+    require_legal_check_when:
+      - pricing
+      - claims
+      - security
+      - client-name-drop      # added: client list is real (IDEO, NYSE, Moffitt, etc.) — never name a client publicly without explicit clearance
+
+  paths:
+    campaigns: "marketing/campaigns/"
+    playbook: "marketing/PLAYBOOK.md"
+    competitors: "marketing/competitors.md"
+    examples: "marketing/examples/"
+
+  hypeman:
+    passive_version_check: true
