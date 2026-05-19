@@ -1,0 +1,23 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<div class="container-wrapper text-container">
+  <div class="container py-5">
+    <div class="px-4 py-3">
+      <h1 class="display-5 fw-bold">Things we&rsquo;ve built.</h1>
+      <p class="lead col-lg-8">
+        Bout Labs ships its own products alongside client engagements &mdash; the same people, the same standards, but with skin in the game.
+      </p>
+    </div>
+
+    <div class="project-grid pt-4">
+      {%- assign sorted = site.projects | sort: 'order' -%}
+      {%- for project in sorted -%}
+        {% include project-card.html project=project %}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
