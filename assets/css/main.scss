@@ -20,17 +20,21 @@ p {
   font-family: Adelle;
 }
 
-.even-container {
-  background-color: $analog1; //tint-color($primary, 20%);
-}
+// Section background alternation — driven by `:nth-of-type` so inserting,
+// removing, or reordering `.container-wrapper`s under <main> just works.
+// `.text-container` is a class-based override for the white-background
+// sections that interrupt the colored bands (e.g. hero text, client logos).
+main > .container-wrapper {
+  background-color: $analog1;
 
-.odd-container {
-  background-color: $analog2; //tint-color($primary, 40%);
-}
+  &:nth-of-type(even) {
+    background-color: $analog2;
+  }
 
-.text-container {
-  background-color: $white;
-  color: $dark;
+  &.text-container {
+    background-color: $white;
+    color: $dark;
+  }
 }
 
 .body-copy {
