@@ -1,0 +1,72 @@
+---
+layout: default
+---
+
+<div class="container-wrapper text-container">
+  <div class="container py-5">
+    <div class="pb-3">
+      <a href="/projects/" class="icon-link">
+        <svg class="bi" width="1em" height="1em">
+          <use xlink:href="/assets/images/bootstrap-icons.svg#chevron-left"></use>
+        </svg>
+        All projects
+      </a>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-10">
+        <p class="text-uppercase text-muted small mb-1" style="letter-spacing: 0.08em;">{{ page.kind | default: 'Bout Labs project' }}</p>
+        <h1 class="display-5 fw-bold mb-3">{{ page.title }}</h1>
+        {% if page.pitch %}
+        <p class="lead">{{ page.pitch }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if page.stack or page.role or page.status %}
+    <div class="row mt-4">
+      <div class="col-lg-10">
+        <dl class="row small mb-0">
+          {% if page.stack %}
+          <dt class="col-sm-3 text-muted fw-normal">Stack</dt>
+          <dd class="col-sm-9">{{ page.stack }}</dd>
+          {% endif %}
+          {% if page.role %}
+          <dt class="col-sm-3 text-muted fw-normal">Bout Labs&rsquo; role</dt>
+          <dd class="col-sm-9">{{ page.role }}</dd>
+          {% endif %}
+          {% if page.status %}
+          <dt class="col-sm-3 text-muted fw-normal">Status</dt>
+          <dd class="col-sm-9">{{ page.status }}</dd>
+          {% endif %}
+        </dl>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="container-wrapper text-container">
+  <div class="container pb-5">
+    <div class="row">
+      <div class="col-lg-8 mx-auto project-body">
+        {{ content }}
+      </div>
+    </div>
+
+    {% if page.links %}
+    <div class="row pt-4">
+      <div class="col-lg-8 mx-auto">
+        <h2 class="h4 mb-3">Links</h2>
+        <ul class="list-unstyled">
+          {% for link in page.links %}
+          <li class="mb-2">
+            <a href="{{ link.url }}" {% if link.external %}target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>

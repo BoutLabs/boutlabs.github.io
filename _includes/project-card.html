@@ -1,0 +1,13 @@
+<a class="project-card" href="{{ include.project.url }}">
+  <div class="project-card-mark">
+    <img src="{{ include.project.mark | default: '/assets/images/bout-labs-circle.svg' }}" alt="" role="presentation">
+  </div>
+  <div class="project-card-body">
+    <p class="project-card-kind">{{ include.project.kind | default: 'Project' }}</p>
+    <h2 class="project-card-title">{{ include.project.title }}</h2>
+    <p class="project-card-pitch">{{ include.project.pitch }}</p>
+    {% if include.project.stack %}
+    <p class="project-card-stack">{{ include.project.stack }}</p>
+    {% endif %}
+  </div>
+</a>

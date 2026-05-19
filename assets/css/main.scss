@@ -104,3 +104,119 @@ body {
     padding-bottom: 4.5rem;
   }
 }
+
+// --- Projects index + card --------------------------------------------------
+
+.project-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-card {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: $dark;
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+
+  &:hover,
+  &:focus {
+    color: $dark;
+    text-decoration: none;
+    border-color: rgba($primary, 0.4);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.project-card-mark {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+}
+
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.project-card-kind {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba($dark, 0.55);
+  margin: 0 0 0.25rem;
+}
+
+.project-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.project-card-pitch {
+  font-family: Adelle;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+  color: $dark;
+}
+
+.project-card-stack {
+  font-size: 0.8rem;
+  color: rgba($dark, 0.6);
+  margin: 0;
+}
+
+// --- Project case-study body ------------------------------------------------
+
+.project-body {
+  font-family: Adelle;
+  line-height: 1.6;
+
+  h2 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-family: inherit;
+    font-weight: 600;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  ul,
+  ol {
+    margin-bottom: 1rem;
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+  }
+}
