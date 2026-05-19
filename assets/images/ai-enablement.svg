@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet" role="img" aria-label="">
+  <defs>
+    <linearGradient id="aiBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2d7a"/>
+      <stop offset="100%" stop-color="#2a3b97"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded panel matching the .rounded image treatment of the other service blocks -->
+  <rect width="400" height="400" rx="14" fill="url(#aiBg)"/>
+
+  <!-- Subtle frame for visual weight -->
+  <rect x="1" y="1" width="398" height="398" rx="13" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- A 3 → 3 → 2 node graph. Abstractly evokes a model — and the wider Bout Labs frame
+       of connecting the right pieces. -->
+  <g stroke="rgba(255,255,255,0.32)" stroke-width="1.25" fill="none">
+    <!-- left layer (3) to middle layer (3) -->
+    <line x1="110" y1="125" x2="200" y2="145"/>
+    <line x1="110" y1="125" x2="200" y2="200"/>
+    <line x1="110" y1="125" x2="200" y2="255"/>
+    <line x1="110" y1="200" x2="200" y2="145"/>
+    <line x1="110" y1="200" x2="200" y2="200"/>
+    <line x1="110" y1="200" x2="200" y2="255"/>
+    <line x1="110" y1="275" x2="200" y2="145"/>
+    <line x1="110" y1="275" x2="200" y2="200"/>
+    <line x1="110" y1="275" x2="200" y2="255"/>
+    <!-- middle layer (3) to right layer (2) -->
+    <line x1="200" y1="145" x2="295" y2="170"/>
+    <line x1="200" y1="145" x2="295" y2="230"/>
+    <line x1="200" y1="200" x2="295" y2="170"/>
+    <line x1="200" y1="200" x2="295" y2="230"/>
+    <line x1="200" y1="255" x2="295" y2="170"/>
+    <line x1="200" y1="255" x2="295" y2="230"/>
+  </g>
+
+  <!-- Nodes -->
+  <g fill="#fff">
+    <circle cx="110" cy="125" r="7"/>
+    <circle cx="110" cy="200" r="7"/>
+    <circle cx="110" cy="275" r="7"/>
+    <circle cx="200" cy="145" r="7"/>
+    <circle cx="200" cy="200" r="9"/>
+    <circle cx="200" cy="255" r="7"/>
+    <circle cx="295" cy="170" r="8"/>
+    <circle cx="295" cy="230" r="8"/>
+  </g>
+
+  <!-- One brighter accent line through the middle node — the "decision" -->
+  <line x1="110" y1="200" x2="295" y2="200" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
+</svg>
