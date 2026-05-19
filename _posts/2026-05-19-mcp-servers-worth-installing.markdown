@@ -8,7 +8,7 @@ tags: [ai-enablement, mcp, tooling]
 
 The right three MCP servers will save you more time than the wrong fifteen. We've installed close to 40 different ones across client engagements in the last year, and the working set we keep coming back to is small — five, maybe six, depending on the project. Everything else either added noise to the agent's tool list, added auth complexity nobody wanted to maintain, or sat unused after the demo wore off.
 
-That gap between "the demo looked great" and "we still have it installed three weeks later" is the only honest filter for an MCP server. So here is the field-tested list — what we keep, what we removed, and why.
+The gap between "the demo looked great" and "we still have it installed three weeks later" is the only honest filter for an MCP server. So here is the field-tested list — what we keep, what we removed, and why.
 
 ## What MCP actually solves
 
@@ -47,7 +47,7 @@ Auth is a GitHub App installation token or a personal access token. App tokens a
 
 ### Filesystem MCP — only sometimes
 
-The [reference filesystem server](https://github.com/modelcontextprotocol/servers) does what it says: scoped read and write under a root directory. Useful when the harness can't reach the relevant files itself, or when you want to give an agent access to a sibling directory outside the working tree.
+The [reference filesystem server](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) does what it says: scoped read and write under a root directory. Useful when the harness can't reach the relevant files itself, or when you want to give an agent access to a sibling directory outside the working tree.
 
 For most engagements, we don't mount it. Claude Code's native file tools already cover the common case, and adding a second filesystem interface just gives the agent two ways to do the same thing — which it will inevitably interleave inconsistently. Where the filesystem MCP earns its slot is multi-repo work where the agent needs to read from one tree and write to another, or sandboxed environments where the native tools are scoped tighter than the workflow needs.
 
@@ -103,9 +103,15 @@ For 80% of agent workflows in 2026, you don't need it. The model's native contex
 
 When you do install one, treat the corpus build as the actual project. The MCP is the easy part; the embeddings are where the work lives.
 
-### Calendar, CRM, ticketing wrappers
+### Linear MCP — the ticketing wrapper that earns its slot
 
-These come in waves. Every quarter there's a new "Linear MCP" or "Notion MCP" or "Asana MCP" that promises to let the agent manage your work for you. We've tried several. The shape is always the same: the verbs cover the read path well and the write path badly, the agent's mental model of the tool drifts from the team's, and within a week somebody has to clean up a ticket the agent moved into the wrong column.
+The one we've reversed on. Linear's MCP has gotten meaningfully better in 2026 — the write path is more constrained and predictable than the early generation of ticketing wrappers, the tool descriptions are clean enough that the agent doesn't drift, and the read path is genuinely useful for grounding agent work in the team's actual queue. We install it on engagements where Linear is already the source of truth and the team wants the agent to read the queue, comment on tickets, and occasionally move items along a known workflow.
+
+Still worth setting the boundary on writes — anything that changes status or assignment goes through human review. But the floor is higher than the previous generation of ticketing wrappers, and that floor matters.
+
+### Calendar, CRM, other ticketing wrappers
+
+These come in waves. Every quarter there's a new Notion or Asana or HubSpot MCP that promises to let the agent manage your work for you. We've tried several. The shape is always the same: the verbs cover the read path well and the write path badly, the agent's mental model of the tool drifts from the team's, and within a week somebody has to clean up a ticket the agent moved into the wrong column.
 
 The pattern that does work: a read-only MCP that exposes the system as context (so the agent can answer questions about the team's work) paired with explicit human-in-the-loop for any write action. Most off-the-shelf wrappers don't split that boundary cleanly, which is why we've removed them.
 
@@ -121,7 +127,7 @@ A few things that have surprised people on first-MCP installs:
 
 ## The take
 
-Fewer MCPs, picked specifically, beats more MCPs picked broadly. The five servers we install on most engagements — GitHub, Playwright, sometimes filesystem, sometimes SQLite, one fetcher — cover the workflows we actually run. Everything else has been a costume.
+Fewer MCPs, picked with intention, beats more MCPs picked broadly. The five servers we install on most engagements — GitHub, Playwright, sometimes filesystem, sometimes SQLite, one fetcher — cover the workflows we actually run. Everything else has been a costume.
 
 If you're standing up an agentic workflow for a real team, the question worth asking isn't "which MCPs should we install?" — it's "which two or three tools, if the agent had them and nothing else, would deliver the work we care about?" Start there. Install those. Resist mounting another until the agent has been doing the work for two weeks and you've watched what it actually reaches for.
 
