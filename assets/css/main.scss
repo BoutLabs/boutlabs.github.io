@@ -56,3 +56,47 @@ p {
 .overflow-hidden {
   overflow: hidden;
 }
+
+// --- Sticky call-to-action bar -----------------------------------------------
+// A persistent inquiry CTA pinned to the bottom of the viewport on every page.
+// Body padding reserves space so regular content + footer aren't covered when
+// scrolled to the bottom.
+
+.cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $white;
+  color: $dark;
+  padding: 0.85rem 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.12);
+  z-index: 1030;
+}
+
+.cta-bar-text {
+  font-family: Adelle;
+  margin: 0;
+  font-size: 1.05rem;
+
+  @media (max-width: 575.98px) {
+    display: none;
+  }
+}
+
+.cta-bar-button {
+  white-space: nowrap;
+
+  @media (max-width: 575.98px) {
+    width: 100%;
+  }
+}
+
+body {
+  padding-bottom: 5.25rem;
+
+  @media (max-width: 575.98px) {
+    padding-bottom: 4.5rem;
+  }
+}

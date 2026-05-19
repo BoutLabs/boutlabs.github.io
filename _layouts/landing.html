@@ -3,9 +3,9 @@
 {% include head.html %}
 
   <body>
-    {% include header-minimal.html %}
     {{ content }}
     {% include footer.html %}
+    {% unless page.suppress_cta %}{% include cta-bar.html %}{% endunless %}
     {% include body-javascript.html %}
   </body>
 </html>
