@@ -18,7 +18,7 @@ This post is about those three rails — specifically, why each one exists, what
 
 The first rail is that every piece of work the agent touches arrives as one hand-off-ready issue. Not "go build me the dashboard." A specific issue with a thesis, a file list, acceptance criteria, and a definition of done that another human could verify in five minutes.
 
-This sounds like project-management hygiene. It's not. It's the only thing standing between an AI agent and an open-ended scope expansion that takes the codebase somewhere nobody asked it to go.
+This is project-management hygiene — the same patterns that help humans share context across distributed teams help agents do it too. What's new with agents is the speed at which a fuzzy spec turns into committed code nobody asked for, and the cost of unwinding it once it has.
 
 Here's what happens when scope is loose. The agent reads the request, infers the intent, fills the gaps with whatever its training distribution thinks is reasonable, and starts editing. Most of the gap-filling is fine. Some of it is subtly wrong — a naming convention that doesn't match the rest of the repo, a library choice that conflicts with an existing one, an abstraction introduced where the codebase had been deliberately flat. The wrongness compounds across files. By the time a human reviews the PR, the cost of unwinding is higher than the cost of throwing it out and starting over.
 
@@ -57,15 +57,17 @@ The third rail is the one that takes the longest to internalize: the agent that 
 
 This rule exists because the same model that writes the code is also the one most likely to rationalize it. Ask an agent to review its own PR and you'll get a thoughtful checklist, a "looks good to me," and a missed bug that a fresh pair of eyes would have caught in fifteen seconds. The agent isn't lying — it's just not the right reviewer for its own work. The same way human engineers aren't.
 
-So we put a gate in front of every PR. The gate has two flavors, and we pick based on the blast radius of the change.
+So we put a gate in front of every PR. The gate has three layers, applied in order — cheap first, expensive last.
 
-**For low-risk changes** — content edits, isolated refactors, dependency bumps — a second agent reviews. Same model, different context window, different system prompt focused on diff review. It catches roughly the same class of issues a junior reviewer would: a missing test, an obviously wrong assumption, a function that shadows another, an Edit that didn't actually apply because the file changed mid-chain. Of the agent-on-agent reviews we've run in the last three months, the reviewer agent blocked a non-trivial issue on roughly a third of the PRs. The other two-thirds it stamped approve, and the humans agreed.
+**The deterministic layer goes first.** Format, lint, type check, static analysis, automated tests. These catch the things that are obviously wrong before any reviewer — agent or human — wastes a minute on them. None of it requires judgment, all of it runs in seconds, and an agent that consistently produces work that fails these checks is an agent that needs its prompt rewritten, not its output reviewed. We don't ship a PR — agent-written or otherwise — that hasn't cleared the deterministic gate locally. CI is for confirming, not for discovering.
+
+**For low-risk changes** — content edits, isolated refactors, dependency bumps — a second agent reviews above the deterministic layer. Same model, different context window, different system prompt focused on diff review. It catches roughly the same class of issues a junior reviewer would: a missing test, an obviously wrong assumption, a function that shadows another, an Edit that didn't actually apply because the file changed mid-chain. Of the agent-on-agent reviews we've run in the last three months, the reviewer agent blocked a non-trivial issue on roughly a third of the PRs. The other two-thirds it stamped approve, and the humans agreed.
 
 **For higher-risk changes** — schema changes, anything touching auth, any public-API surface — a human reviews, full stop. The reviewer agent's first job there is to summarize the diff for the human, not to gate it. We're not trying to take humans out of the loop. We're trying to spend their attention where it matters.
 
 The discipline that makes this work is matching the gate to the risk. Putting a human in front of every dependency bump burns trust and goodwill. Putting a reviewer agent in front of a schema migration is malpractice. The team has to be honest about which is which — and the issue's labels are usually a good proxy. A `feat:` issue with a `security` label gets a human. A `chore(deps):` gets the agent.
 
-One sharp edge worth naming: reviewing AI-written code is still real engineering work. We've seen typecheck failures slip past the reviewer agent. We've seen dynamic-import shims that worked in dev and exploded in the test runner. We've seen named-vs-default export drift in a dependency that the agent didn't think to verify. Don't ship AI work without the gate, and don't trust the gate to substitute for running the full pre-push checks yourself. Format, lint, build, test — all four, in order, before the PR goes up.
+One sharp edge worth naming: reviewing AI-written code is still real engineering work. We've seen typecheck failures slip past the reviewer agent. We've seen dynamic-import shims that worked in dev and exploded in the test runner. We've seen named-vs-default export drift in a dependency that the agent didn't think to verify. Don't ship AI work without the gate, and don't trust the gate to substitute for the deterministic layer underneath — format, lint, build, test, all four, in order, before the PR goes up.
 
 ## What happens when you skip a rail
 
