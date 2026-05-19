@@ -5,3 +5,15 @@ _site
 
 # Cruft
 .DS_Store
+
+# --- cornerman additions ---
+# Agent comms — local-only flat-file message bus across concurrent agents
+AGENT_COMMS.log
+
+# Agent worktrees — temporary isolated working copies created by the
+# implementer agent. Pruned periodically; never committed.
+.claude/worktrees/
+
+# --- hypeman additions ---
+# Local metrics cache — analyst writes here; not committed
+marketing/.metrics-cache/
