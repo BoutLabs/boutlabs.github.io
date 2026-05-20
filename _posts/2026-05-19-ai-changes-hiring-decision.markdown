@@ -4,6 +4,7 @@ title:  "How AI in the loop changes a technology hiring decision"
 date:   2026-05-19 11:00:00 -0400
 categories: [news]
 tags: [ai-enablement, hiring, leadership]
+hero: /assets/images/posts/ai-changes-hiring-decision-header.jpg
 ---
 
 A founder we talked to last quarter was about to sign offers for two senior engineers. Mid-market SaaS, real revenue, board pressure on roadmap. The plan was sensible by 2022 standards — double the senior bench, halve the time to the next big release. By the end of the conversation, she&rsquo;d torn up one of the offers, signed the other, and routed the difference — roughly $280k all-in — into tooling, an agent setup, and a six-month engagement with someone who could teach the rest of the team how to operate the new stack.
