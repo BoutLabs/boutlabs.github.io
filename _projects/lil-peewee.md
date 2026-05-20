@@ -4,6 +4,7 @@ title: Lil Peewee
 permalink: /projects/lil-peewee/
 order: 2
 kind: Web app
+hero: /assets/images/projects/lil-peewee.png
 pitch: A parent-facing potty-training resource. Calm, evidence-driven, and free where it matters most.
 stack: Next.js 16 (App Router) + React 19, Tailwind v4, Cloudflare Workers, Neon Postgres + Drizzle, Stripe Checkout
 role: Built end-to-end at Bout Labs

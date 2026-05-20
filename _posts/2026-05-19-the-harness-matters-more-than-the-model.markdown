@@ -4,6 +4,7 @@ title:  "The harness matters more than the model"
 date:   2026-05-19 09:00:00 -0400
 categories: [news]
 tags: [ai-enablement, technology, engineering]
+hero: /assets/images/posts/the-harness-matters-more-than-the-model-header.png
 ---
 
 Two agents, same model, same prompt — one ships the change and reports back in 14 minutes, the other quietly idles in a worktree for an hour and leaves uncommitted files spread across two branches. The only difference between them is the harness. That experience has repeated enough across Bout Labs work over the last six months that we have stopped recommending coding tools by model and started recommending them by harness — Claude Code, Cursor, Codex CLI, Aider, Continue, and whatever ships next.

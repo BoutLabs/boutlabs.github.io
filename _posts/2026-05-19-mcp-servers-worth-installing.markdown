@@ -4,6 +4,7 @@ title:  "The MCP servers worth installing (and the ones that aren't)"
 date:   2026-05-19 09:00:00 -0400
 categories: [news]
 tags: [ai-enablement, mcp, tooling]
+hero: /assets/images/posts/mcp-servers-worth-installing-header.png
 ---
 
 The right three MCP servers will save you more time than the wrong fifteen. We've installed close to 40 different ones across client engagements in the last year, and the working set we keep coming back to is small — five, maybe six, depending on the project. Everything else either added noise to the agent's tool list, added auth complexity nobody wanted to maintain, or sat unused after the demo wore off.

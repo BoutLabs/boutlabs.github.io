@@ -4,6 +4,7 @@ title:  "The three rails every AI development loop needs"
 date:   2026-05-19 09:00:00 -0400
 categories: [news]
 tags: [ai-enablement, engineering]
+hero: /assets/images/posts/three-rails-ai-loop-header.png
 ---
 
 The first time an AI coding agent silently lied to us, it cost about four hours. The wrapper reported "running in the background, I'll notify you when it's done." It never notified. The agent had stalled inside its own sandbox, half a commit deep, with uncommitted files smeared across two ticket branches because three parallel runs were sharing one working tree. By the time we untangled it, we'd touched five PRs and salvaged maybe 60% of what the agent had actually produced.
