@@ -11,6 +11,29 @@ The goal across the set is a **coordinated visual grammar**: same lighting, same
 3. For the second image onward in a series, pass the URL of your favorite from prompt 1 as `--sref` (Midjourney) or describe its look in natural language (Grok). This is how you lock the aesthetic across a series; without it, every render drifts.
 4. Drop the chosen asset into `assets/images/<category>/<slug>.jpg` and ping for the responsive-markup wiring.
 
+## Default workflow as of 2026-05-19: Grok Imagine API
+
+Direct generation against the Grok Imagine API is the default — no Midjourney handoff loop. The mechanic:
+
+```bash
+curl -sS -X POST https://api.x.ai/v1/images/generations \
+  -H "Authorization: Bearer $XAI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "grok-imagine-image-quality",
+    "prompt": "<per-image prompt> + <shared style anchor>",
+    "n": 1,
+    "response_format": "url"
+  }'
+```
+
+The response URL is short-lived — download immediately. Costs real credits on the team console; burn batches with intention.
+
+Known so far:
+- **`grok-imagine-image-quality`** is the default model. There's a faster `grok-imagine-image` and a video variant; the quality model is right for site work.
+- **Aspect ratio control hasn't been tested** — the smoke test came back 896×1280 (3:4 portrait) without a `size:` param. The `.post-hero` + `.project-hero` CSS uses `object-fit: cover` so portrait images crop sensibly into a 360px banner regardless of source aspect; this works in practice but is worth probing.
+- **`revised_prompt` is empty** in responses — Grok uses the prompt verbatim, no DALL-E-style auto-rewrite. Prompt quality matters.
+
 ## Shared style anchor
 
 Append this to **every** prompt:
@@ -111,6 +134,24 @@ A workshop pegboard close-up showing well-organized tools — three different ha
 
 ```
 A flat-lay overhead photograph of a desk with five small differently-colored objects connected by clean white cables radiating outward from a central laptop, the connections clean and architectural, dark wood surface
+```
+
+### 11. *Token cost is now an engineering metric*
+
+```
+An overhead-angle photograph of a desk with a precision balance scale at center, small brass weights nearby, an open laptop showing terminal text in soft focus, a fountain pen across a ledger of figures, late afternoon side-light, the precision of measurement as the focal point
+```
+
+### 12. *A field guide to AI coding-agent failure modes*
+
+```
+A workshop pegboard at close range showing partially-disassembled tools — a broken screwdriver, a saw with missing teeth, a wrench laid open mid-use, each adjacent to a small paper tag with handwritten pen notes, late afternoon side-light, suggesting careful diagnosis of what broke
+```
+
+### 13. *How AI in the loop changes a technology hiring decision*
+
+```
+A small wood-and-glass meeting room from a corner perspective, two empty chairs facing each other across a small table, a single open notebook on the table with handwritten notes visible, late afternoon window light streaming in, suggesting a conversation that just ended or is about to begin, no people visible
 ```
 
 ## File naming + resolution
