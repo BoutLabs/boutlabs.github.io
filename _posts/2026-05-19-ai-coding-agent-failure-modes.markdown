@@ -4,6 +4,7 @@ title:  "A field guide to AI coding-agent failure modes"
 date:   2026-05-19 09:00:00 -0400
 categories: [news]
 tags: [ai-enablement, engineering]
+hero: /assets/images/posts/ai-coding-agent-failure-modes-header.jpg
 ---
 
 The first time we lost four hours to a silent stall, it felt like a fluke. The second time it happened, we named it. The third time, we had a watchdog wired up and a one-line entry in `AGENT_COMMS.log` told us within ninety seconds where the run was actually parked. That's the difference naming makes — "the AI is being weird" becomes "this is a silent stall, here's the recovery move," and the conversation gets twenty minutes shorter.
