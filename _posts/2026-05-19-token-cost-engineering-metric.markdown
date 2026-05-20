@@ -4,6 +4,7 @@ title:  "Token cost is now an engineering metric"
 date:   2026-05-19 09:00:00 -0400
 categories: [news]
 tags: [ai-enablement, business, economics]
+hero: /assets/images/posts/token-cost-engineering-metric-header.jpg
 ---
 
 The agent ran for nineteen minutes, produced a fourteen-line pull request, and cost $47. The PR was correct — passed CI, merged clean, did the thing it was supposed to do. The bill was the surprise. Up to that point on the engagement, everyone on the team had been quoting the per-task cost in pennies, because most of the per-task costs had been in pennies. This one wasn't. The next morning's review made it clear that nine of those minutes were a tool-call retry loop the agent had spun on quietly, and another four were sub-agent fan-out that nobody had asked for. The output was fourteen lines. The work the model did to produce those fourteen lines was much, much larger.
