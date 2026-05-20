@@ -4,6 +4,7 @@ title: HereNotes
 permalink: /projects/herenotes/
 order: 3
 kind: iOS app
+hero: /assets/images/projects/herenotes.png
 pitch: Location-aware personal notes. The second brain that knows where you were when you wrote things down.
 stack: SwiftUI, iOS native, Core Location, iCloud
 role: Built end-to-end at Bout Labs

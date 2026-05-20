@@ -2,6 +2,12 @@
 layout: default
 ---
 
+{% if page.hero %}
+<div class="container-wrapper post-hero">
+  <img class="img-fluid d-block w-100" src="{{ page.hero }}" alt="" role="presentation">
+</div>
+{% endif %}
+
 <div class="container-wrapper text-container">
   <div class="container py-3">
     <div class="pb-3">

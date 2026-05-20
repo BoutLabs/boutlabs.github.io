@@ -4,6 +4,7 @@ title: Bout Fitness
 permalink: /projects/bout-fitness/
 order: 1
 kind: iOS app
+hero: /assets/images/projects/bout-fitness.png
 pitch: Focused work sessions, modeled as boxing Rounds &mdash; work in the ring, recover in your Corner, never leave the desk for long.
 stack: SwiftUI, iOS 18+, Combine, Core Data + optional CloudKit sync, StoreKit 2
 role: Built end-to-end at Bout Labs
