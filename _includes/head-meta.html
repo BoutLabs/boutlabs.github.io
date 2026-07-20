@@ -43,10 +43,10 @@
   <meta content="{{ site.url }}/about/" property="article:author">
 {% endif %}
 
-{% if page.image %}
-  <meta content="/img/posts/{{ page.image }}" property="og:image">
+{% if page.hero %}
+  <meta content="{{ site.url }}{{ page.hero }}" property="og:image">
 {% else %}
-  <meta content="/assets/images/brainstorming-session.jpg" property="og:image">
+  <meta content="{{ site.url }}/assets/images/coder-at-computer.png" property="og:image">
 {% endif %}
 
 {% if page.categories %}
