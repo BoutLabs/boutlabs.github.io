@@ -12,6 +12,7 @@ gem 'minima', '~> 2.5'
 
 group :jekyll_plugins do
   gem 'jekyll-feed', '~> 0.17'
+  gem 'jekyll-sitemap', '~> 1.4'
 end
 
 group :development do
