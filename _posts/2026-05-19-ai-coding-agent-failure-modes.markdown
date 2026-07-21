@@ -15,9 +15,9 @@ A word on what this post is not. It's not a list of model bugs. The frontier mod
 
 ## Why a taxonomy matters
 
-The cheap reason is shared vocabulary. When a teammate says "I think the agent is in a tool-call loop on the auth refactor," everyone on the call knows what to check first. The diagnostic conversation gets specific in a way that "Claude is acting weird" never does.
+The cheap reason is shared vocabulary. When a teammate says "I think the agent is in a tool-call loop on the auth refactor," everyone on the call knows what to check first. No guessing. The diagnostic conversation gets specific in a way that "Claude is acting weird" never does.
 
-The deeper reason is that named failures invite escape hatches. Once a failure has a name, the team can decide whether to write a guardrail for it, route around it, or accept the cost and move on. Unnamed failures get rediscovered every Tuesday. Named ones get a slot in the loop's design — a watchdog, a comms-log line, a pre-flight check — and stop costing real time.
+The deeper reason is that named failures invite escape hatches. Once a failure has a name, the team can decide whether to write a guardrail for it, route around it, or accept the cost and move on. Unnamed failures get rediscovered every Tuesday. Named ones get a slot in the loop's design — a watchdog, a comms-log line, a pre-flight check — and stop costing real time. That's the whole value of a taxonomy: it turns a recurring surprise into a line item.
 
 Most of these failures share a property worth saying up front: they are *quiet*. The bug isn't usually a crash. It's a confidently-wrong report that looks correct until someone checks the artifact. Build for that.
 
@@ -81,9 +81,9 @@ Most of these failures share a property worth saying up front: they are *quiet*.
 
 ## What the failures have in common
 
-Six of the seven above are *quiet failures*. The agent doesn't crash. It doesn't shout. It writes a confident summary, and the summary doesn't match the artifact. The exception is the hallucinated API, which usually announces itself loudly at test time — and is also the one we worry about least, because the deterministic layer catches it.
+Six of the seven above are *quiet failures*. The agent doesn't crash. It doesn't shout. It writes a confident summary, and the summary doesn't match the artifact. That's the tell, every time. The exception is the hallucinated API, which usually announces itself loudly at test time — and is also the one we worry about least, because the deterministic layer catches it.
 
-That asymmetry is the load-bearing observation in this whole post. The expensive failures are the ones that look like success. They're expensive precisely because the human signal — "the chat says it's done" — is the wrong signal. The right signal is the artifact, and the work of an AI development loop is mostly about making that artifact visible, diffable, and verifiable.
+That asymmetry is the load-bearing observation in this whole post. The expensive failures are the ones that look like success. Success is the disguise. They're expensive precisely because the human signal — "the chat says it's done" — is the wrong signal. The right signal is the artifact, and the work of an AI development loop is mostly about making that artifact visible, diffable, and verifiable.
 
 A related point: most of these are not model bugs. They're integration bugs between a probabilistic worker and a deterministic toolchain. A better model helps a little. A better loop helps a lot more. Which is why the rest of this series has spent so much time on harnesses and guardrails — the model isn't the bottleneck.
 
