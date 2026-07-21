@@ -57,15 +57,15 @@ The escape-valve role is often the same person as the reviewer, sometimes the sa
 
 ## What the new shape often looks like
 
-The teams we&rsquo;ve seen ship clean work with AI in the loop tend to land on one of a few patterns. None of them are novel on their own — but the proportions have shifted.
+The teams shipping clean work with AI in the loop keep landing on one of three patterns. None of them are new. What&rsquo;s new is the ratio.
 
-**One senior, multiple juniors.** A single experienced engineer holds the spec/review/escape function while a small group of junior or mid-level engineers work with agent assistance. The senior&rsquo;s time goes almost entirely to direction and review, not to writing code themselves. Two years ago this ratio would have starved the team for throughput. Today the agent absorbs the execution gap, and the senior&rsquo;s attention is the binding constraint instead.
+**One senior, multiple juniors.** One experienced engineer holds spec, review, and escape. A handful of junior or mid-level engineers do the agent-assisted execution underneath. Two years ago this ratio would have starved the team for throughput — not enough senior bandwidth to keep juniors unblocked. Today the agent absorbs the execution gap. The senior&rsquo;s attention is the constraint now, not the headcount.
 
-**One senior, no juniors, heavy agent use.** A founder or early-stage CTO running solo, with an agent setup that takes on the work a junior would have done. Throughput per dollar is high; ceiling is low. Works when the company is small enough that the senior can hold the whole codebase in their head. Breaks down somewhere between 15 and 25 employees, in our experience — the spec/review surface gets too large for one person.
+**One senior, no juniors, heavy agent use.** A founder or early CTO running solo, agent doing the work a junior used to do. Throughput per dollar is excellent. The ceiling is low. It works exactly as long as one person can hold the whole codebase in their head — somewhere between 15 and 25 employees, in what we&rsquo;ve seen, before the spec/review surface gets too wide for one set of eyes.
 
-**A fractional senior, a permanent team.** The team owns the day-to-day; an experienced operator drops in to write the hard specs, review the load-bearing PRs, and step in when the agent goes sideways. The permanent team learns by watching; the fractional operator&rsquo;s time is reserved for the moments where seniority actually matters. We see this most often in companies between $5M and $50M in revenue, where the engineering org is too small to justify a full-time CTO and too large to operate without senior judgment.
+**A fractional senior, a permanent team.** The team runs day-to-day. An experienced operator drops in to write the hard specs, review the load-bearing PRs, and show up when the agent goes sideways. The permanent team learns by watching. We see this most in the $5M&ndash;$50M revenue band — too small to justify a full-time CTO, too large to run without senior judgment anywhere in the loop.
 
-What ties these patterns together is the same thing: somebody — full-time, part-time, or fractional — is filling the spec/review/escape function explicitly. The pattern that doesn&rsquo;t work is "let&rsquo;s hire two more engineers at the same level we already have and figure it out." That&rsquo;s the 2022 playbook applied to a 2026 production function, and it tends to compound the gaps instead of filling them.
+Different shapes, same answer underneath: somebody is filling spec/review/escape, on purpose. The pattern that doesn&rsquo;t work is the old one — hire two more engineers at the level you already have, and hope it sorts itself out. That&rsquo;s the 2022 playbook running against a 2026 production function. It doesn&rsquo;t fail loudly. It just quietly compounds the gap.
 
 ## A note on fractional engagements
 
@@ -75,15 +75,15 @@ The shape of fractional-CTO work has changed alongside the shape of teams. The s
 
 AI in the loop changes the math on a hiring decision. It doesn&rsquo;t change a lot of other things that founders sometimes hope it will.
 
-**A bad founding spec.** If the product direction is wrong, faster execution makes it more wrong, not less. The agent doesn&rsquo;t catch this. The reviewer might, if the reviewer has the standing and the relationship to push back on direction — but most don&rsquo;t. The fix is upstream of engineering entirely.
+**A bad founding spec.** Faster execution just gets you to wrong faster. The agent won&rsquo;t catch this — it&rsquo;s not built to. The reviewer might, if they have the standing to push back on direction. Most don&rsquo;t. This one isn&rsquo;t an engineering fix at all.
 
-**A team that can&rsquo;t disagree productively.** Healthy disagreement is the mechanism that turns ten okay ideas into one good one. Teams that have papered over disagreement with politeness, or routed it through the founder as arbiter, don&rsquo;t suddenly start disagreeing well because they have agents. They keep being polite, and the agent keeps writing whatever was easiest to agree on in the moment.
+**A team that can&rsquo;t disagree productively.** Healthy disagreement turns ten okay ideas into one good one. Teams that paper over disagreement with politeness — or route it through the founder as arbiter — don&rsquo;t start disagreeing well just because they added agents. They stay polite. The agent just writes whichever answer was easiest to agree on.
 
-**A codebase nobody wants to touch.** AI agents struggle in legacy code the same way humans do — the difference is they fail less visibly, so you find out months later that the agent has been silently working around a load-bearing comment instead of with it. Hiring more senior engineers might help here. Hiring more agent-augmented juniors won&rsquo;t.
+**A codebase nobody wants to touch.** Agents struggle in legacy code the same way people do. The difference is they fail quieter — you find out months later the agent&rsquo;s been working around a load-bearing comment instead of with it. More senior engineers might help here. More agent-augmented juniors won&rsquo;t.
 
-**A vendor relationship that&rsquo;s underperforming.** If the existing agency or consulting partner isn&rsquo;t delivering, adding agents to your side of the table doesn&rsquo;t move the dynamic. You still need the same conversations about scope, accountability, and outcomes. Those are upstream of tooling.
+**An underperforming vendor relationship.** If the agency isn&rsquo;t delivering, adding agents to your side of the table doesn&rsquo;t change the dynamic. You still need the scope conversation, the accountability conversation, the outcomes conversation. Same as always. Upstream of tooling.
 
-**The cost of hiring badly.** A bad senior engineer is still a bad senior engineer, agent-equipped or not. If anything, the cost of a bad senior hire is higher in the new shape, because that one person is filling more of the spec/review/escape function than they would have been three years ago. The bar on the hiring loop went up, not down.
+**The cost of hiring badly.** A bad senior is still a bad senior, agent or no agent. If anything the cost is higher now — that one person is carrying more of spec/review/escape than they would have three years ago. The bar went up. It didn&rsquo;t go down.
 
 ## The shape of the call
 
