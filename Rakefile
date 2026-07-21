@@ -19,7 +19,15 @@ task :test => :build do
       # LinkedIn 999s automated requests against /company/ pages; ignore to
       # avoid spurious failures. See docs/LESSONS.md.
       %r{https?://www\.linkedin\.com/company/boutlabs}
-    ]
+    ],
+    swap_urls: {
+      # Canonical/OG tags render fully-qualified boutlabs.com URLs (see
+      # _includes/head.html). On a not-yet-merged PR, the page's own URL
+      # isn't live in production yet, so treating it as an external link
+      # 404s. Rewrite our own domain back to a relative path so it's
+      # checked against the local _site build instead of a live request.
+      %r{^https?://(www\.)?boutlabs\.com} => ''
+    }
   }
   HTMLProofer.check_directory('./_site', options).run
 end
