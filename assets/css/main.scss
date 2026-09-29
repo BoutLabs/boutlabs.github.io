@@ -105,6 +105,17 @@ body {
   }
 }
 
+// --- Inquiry form ------------------------------------------------------------
+// Honeypot field: kept in the DOM for bots, moved off-screen for people.
+
+.inquiry-hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 // --- Projects index + card --------------------------------------------------
 
 .project-grid {

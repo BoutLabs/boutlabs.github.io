@@ -10,6 +10,10 @@ url: "https://www.boutlabs.com" # the base hostname & protocol for your site
 twitter_username: boutlabs
 github_username:  BoutLabs
 capsule_webform_key: e9dfc9a9-f758-4f73-87ea-0bc3f71107c1
+# TODO(jesse): paste the Google Calendar appointment-schedule URL for the
+# 30-min intro call. While empty, the "Book 30 minutes" links on /contact-us/
+# and /thank-you/ are hidden.
+booking_url: ""
 google_tracking_id: UA-143690680-1
 timezone: America/New_York
 
