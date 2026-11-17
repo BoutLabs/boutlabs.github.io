@@ -4,7 +4,8 @@ on: [push]
 
 jobs:
   checks:
-    runs-on: ubuntu-latest
+    # ubuntu-latest is 26.04, and ruby-builder has no 3.3.3 build for it.
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout branch
