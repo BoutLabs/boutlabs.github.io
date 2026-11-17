@@ -3,7 +3,8 @@
 {% include head.html %}
 
   <body>
-    <main>
+    {% include skip-link.html %}
+    <main id="main-content" tabindex="-1">
       {{ content }}
     </main>
     {% include footer.html %}
