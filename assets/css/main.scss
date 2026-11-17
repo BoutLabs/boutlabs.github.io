@@ -7,6 +7,8 @@ $primary: #2a3b97;
 $analog1: #2a5197;
 $analog2: #2a6797;
 $dark: #334;
+$navbar-dark-color: #ffffff; // default 55% white on $primary is only 4.1:1
+$navbar-dark-hover-color: #ffffff;
 
 @import "bootstrap";
 @import "blog";
@@ -42,6 +44,10 @@ main > .container-wrapper {
 }
 
 .icon-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding-block: 0.15rem;
   font-weight: lighter;
   text-decoration: none;
 }
@@ -226,9 +232,83 @@ body {
 
 // --- Project case-study body ------------------------------------------------
 
+// Keyboard focus that stays visible on both the blue navbar and white sections.
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px #161616;
+}
+
+// Beats .btn-primary:focus, whose glow disappears on the white contact bar.
+a.btn:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid #1a1a1a;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px #ffffff, 0 0 0 8px #1a1a1a;
+  transition: none;
+}
+
+#main-content:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.skip-link:focus {
+  position: static;
+  display: inline-block;
+  z-index: 1080;
+  width: auto;
+  height: auto;
+  margin: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: underline;
+  border-radius: 0.25rem;
+  outline: 3px solid #1a1a1a;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+// Keep focused controls clear of the fixed contact bar (WCAG 2.4.11).
+html {
+  scroll-padding-bottom: 6.5rem;
+}
+
+a:focus,
+button:focus,
+.btn:focus {
+  scroll-margin-bottom: 6.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card {
+    transition: none;
+
+    &:hover,
+    &:focus {
+      transform: none;
+    }
+  }
+}
+
 .project-body {
   font-family: Adelle;
   line-height: 1.6;
+  overflow-wrap: break-word;
 
   h2 {
     margin-top: 2rem;

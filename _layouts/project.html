@@ -12,7 +12,7 @@ layout: default
   <div class="container py-5">
     <div class="pb-3">
       <a href="/projects/" class="icon-link">
-        <svg class="bi" width="1em" height="1em">
+        <svg class="bi" width="1em" height="1em" aria-hidden="true" focusable="false">
           <use xlink:href="/assets/images/bootstrap-icons.svg#chevron-left"></use>
         </svg>
         All projects
@@ -60,14 +60,14 @@ layout: default
       </div>
     </div>
 
-    {% if page.links %}
+    {% if page.links and page.links.size > 0 %}
     <div class="row pt-4">
       <div class="col-lg-8 mx-auto">
         <h2 class="h4 mb-3">Links</h2>
         <ul class="list-unstyled">
           {% for link in page.links %}
           <li class="mb-2">
-            <a href="{{ link.url }}" {% if link.external %}target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>
+            <a href="{{ link.url }}">{{ link.label }}</a>
           </li>
           {% endfor %}
         </ul>
