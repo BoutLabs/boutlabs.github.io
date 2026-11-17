@@ -1,6 +1,7 @@
 ---
 layout: project
 title: HereNotes
+document_title: "HereNotes — Notes that know where they are"
 permalink: /projects/herenotes/
 order: 3
 kind: iPhone app

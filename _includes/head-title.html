@@ -1,4 +1,6 @@
-{% if page.title %}
+{% if page.document_title %}
+  <title>{{ page.document_title }} | {{ site.title }}</title>
+{% elsif page.title %}
   <title>{{ site.title }} | {{ page.title }}</title>
 {% else %}
   <title>{{ site.title }}</title>
