@@ -4,8 +4,8 @@ title: Contact
 permalink: /contact-us/
 suppress_cta: true
 description: >-
-  Get in touch with Bout Labs about your next software, AI enablement, or
-  technology strategy project — we reply within a couple of business days.
+  Get in touch with Bout Labs about fractional CTO support or AI advisory.
+  Tell us what you're weighing; we reply within two business days.
 ---
 
 <div class="container-wrapper text-container">
@@ -14,8 +14,15 @@ description: >-
       <div class="text-center pb-4">
         <h1 class="display-5 fw-bold">Let&rsquo;s talk.</h1>
         <p class="lead">
-          Tell us a little about what you&rsquo;re working on. We&rsquo;ll get back to you within a couple of business days.
+          Two minutes of context now saves a 30-minute call later. Tell us what you&rsquo;re weighing. We read every note ourselves and reply within two business days.
         </p>
+        {% comment %}TODO(jesse): set booking_url in _config.yml to show this line (issue #62).{% endcomment %}
+        {% if site.booking_url and site.booking_url != "" %}
+        <p>
+          Prefer to just pick a time?
+          <a href="{{ site.booking_url }}" class="fw-bold">Book 30 minutes<span aria-hidden="true">&nbsp;&rarr;</span></a>
+        </p>
+        {% endif %}
       </div>
       {% include capsule-web-form.html %}
     </div>

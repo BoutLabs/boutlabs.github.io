@@ -1,4 +1,28 @@
-<form action="https://service.capsulecrm.com/service/newlead" method="post">
+{% comment %}
+  Capsule CRM website contact form (manual HTML integration).
+  Field names follow Capsule's documented options:
+  https://capsulecrm.com/support/contact-management/how-to-get-leads-from-a-contact-form-into-capsule/
+
+  CUSTOMFIELD[...] names must match the custom-field labels in the Bout Labs
+  Capsule account EXACTLY (case and spacing). If a Capsule field is a list
+  field, its options must match the values below as well.
+  TODO(jesse): create or confirm these custom fields in Capsule
+  (Account Settings > Custom Fields), then confirm or rename the bracketed names:
+    - CUSTOMFIELD[Offer]      (Fractional CTO / AI Advisory / Not sure yet)
+    - CUSTOMFIELD[Team size]
+    - CUSTOMFIELD[Timeline]
+    - CUSTOMFIELD[Source]     ("How did you hear about us?")
+
+  Spam protection:
+    - CAPTCHA is a Capsule-side setting, not markup. TODO(jesse): Account
+      Settings > Integrations > Website Contact Form > set CAPTCHA to
+      "only for suspicious activity" (or "always"). Nothing in this form
+      needs to change for that.
+    - Honeypot + time trap below are client-side only (see inline script).
+      The honeypot input is disabled before a real submit, so it is
+      never sent to Capsule.
+{% endcomment %}
+<form action="https://service.capsulecrm.com/service/newlead" method="post" id="inquiryForm">
   <input type="hidden" name="FORM_ID" value="{{ site.capsule_webform_key }}">
   <input type="hidden" name="COMPLETE_URL" value='{{ "/thank-you" | absolute_url }}'>
   <input type="hidden" name="TAG" value="Website">
@@ -7,55 +31,134 @@
     <input type="hidden" name="DEVELOPER" value="TRUE"/>
   {% endif %}
 
-  <div class="row mb-3">
-    <div class="col">
-      <label for="contactReason" class="form-label">How can we help?</label>
-      <textarea name="NOTE" class="form-control" id="contactReason"></textarea>
+  <!-- Honeypot: hidden from people and screen readers. Bots that fill every field get blocked. -->
+  <div class="inquiry-hp" aria-hidden="true">
+    <label for="contactCompanyUrl">Leave this field empty</label>
+    <input type="text" name="company_url" id="contactCompanyUrl" tabindex="-1" autocomplete="off">
+  </div>
+
+  <div class="row my-3 g-3">
+    <div class="col-md-6">
+      <label for="contactName" class="form-label">Name</label>
+      <input type="text" name="PERSON_NAME" class="form-control" id="contactName" autocomplete="name" required>
+    </div>
+    <div class="col-md-6">
+      <label for="contactEmail" class="form-label">Work email</label>
+      <input type="email" name="EMAIL" class="form-control" id="contactEmail" autocomplete="email" required>
     </div>
   </div>
 
-  <div class="row my-3">
-    <div class="col">
-      <label for="contactCompany" class="form-label">What is your project or company called?</label>
-      <input type="text" name="ORGANISATION_NAME" class="form-control" id="contactCompany" required>
+  <div class="row my-3 g-3">
+    <div class="col-md-6">
+      <label for="contactCompany" class="form-label">Company</label>
+      <input type="text" name="ORGANISATION_NAME" class="form-control" id="contactCompany" autocomplete="organization" required>
+    </div>
+    <div class="col-md-6">
+      <label for="contactRole" class="form-label">Your role</label>
+      <input type="text" name="JOB_TITLE" class="form-control" id="contactRole" autocomplete="organization-title" placeholder="e.g., CEO, COO, VP Product" required>
     </div>
   </div>
 
+  <fieldset class="row my-3">
+    <legend class="col-12 form-label fs-6 mb-2">What do you need?</legend>
+    <div class="col-12">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="CUSTOMFIELD[Offer]" id="offerFractionalCto" value="Fractional CTO" data-offer="fractional-cto" required>
+        <label class="form-check-label" for="offerFractionalCto">Fractional CTO</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="CUSTOMFIELD[Offer]" id="offerAiAdvisory" value="AI Advisory" data-offer="ai-advisory">
+        <label class="form-check-label" for="offerAiAdvisory">AI Advisory</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="CUSTOMFIELD[Offer]" id="offerNotSure" value="Not sure yet" data-offer="not-sure">
+        <label class="form-check-label" for="offerNotSure">Not sure yet</label>
+      </div>
+    </div>
+  </fieldset>
+
   <div class="row my-3">
     <div class="col">
-      <label for="contactBudget" class="form-label">What's your budget?</label>
-      <select class="form-select" id="contactBudget" name="CUSTOMFIELD[Budget]">
-        <option></option>
-        <option>Less than $25,000</option>
-        <option>$25,000 - $49,999</option>
-        <option>$50,000 - $99,999</option>
-        <option>$100,000 - $200,000</option>
-        <option>Greater than $200,000</option>
-        <option>Currently researching</option>
+      <label for="contactReason" class="form-label">What are you deciding or trying to fix?</label>
+      <textarea name="NOTE" class="form-control" id="contactReason" rows="4" placeholder="The decision, what&rsquo;s at stake, and what you&rsquo;ve tried." aria-describedby="contactReasonHelp" required></textarea>
+      <div id="contactReasonHelp" class="form-text">Two to four sentences is plenty.</div>
+    </div>
+  </div>
+
+  <p class="text-muted small mt-4 mb-2">Optional, but it helps us come prepared.</p>
+
+  <div class="row my-3 g-3">
+    <div class="col-md-6">
+      <label for="contactWebsite" class="form-label">Company website</label>
+      <input type="url" name="WEBSITE" class="form-control" id="contactWebsite" autocomplete="url" placeholder="https://">
+    </div>
+    <div class="col-md-6">
+      <label for="contactTeamSize" class="form-label">Team size</label>
+      <select class="form-select" id="contactTeamSize" name="CUSTOMFIELD[Team size]">
+        <option value=""></option>
+        <option>Just me</option>
+        <option>2&ndash;10</option>
+        <option>11&ndash;50</option>
+        <option>51&ndash;200</option>
+        <option>201&ndash;500</option>
+        <option>500+</option>
       </select>
     </div>
   </div>
 
-  <div class="row my-3">
-    <div class="col-md-4">
-      <label for="contactName" class="form-label">Name</label>
-      <input type="text" name="PERSON_NAME" class="form-control" id="contactName" required>
+  <div class="row my-3 g-3">
+    <div class="col-md-6">
+      <label for="contactTimeline" class="form-label">Timeline</label>
+      <select class="form-select" id="contactTimeline" name="CUSTOMFIELD[Timeline]">
+        <option value=""></option>
+        <option>This month</option>
+        <option>1&ndash;3 months</option>
+        <option>3&ndash;6 months</option>
+        <option>Just exploring</option>
+      </select>
     </div>
-
-    <div class="col-md-4">
-      <label for="contactEmail" class="form-label">Email</label>
-      <input type="email" name="EMAIL" class="form-control" id="contactEmail" required>
-    </div>
-
-    <div class="col-md-4">
-      <label for="contactPhone" class="form-label">Telephone</label>
-      <input type="text" name="PHONE" class="form-control" id="contactPhone">
+    <div class="col-md-6">
+      <label for="contactSource" class="form-label">How did you hear about us?</label>
+      <select class="form-select" id="contactSource" name="CUSTOMFIELD[Source]">
+        <option value=""></option>
+        <option>Referral</option>
+        <option>LinkedIn</option>
+        <option>Search</option>
+        <option>Blog post</option>
+        <option>Event</option>
+        <option>Other</option>
+      </select>
     </div>
   </div>
 
-  <div class="row my-3">
+  <div class="row my-4">
     <div class="col">
       <input class="btn btn-primary btn-lg px-4" type="submit" value="Send">
     </div>
   </div>
 </form>
+
+<script>
+  (function () {
+    var form = document.getElementById('inquiryForm');
+    if (!form) return;
+
+    // Preselect "What do you need?" from ?offer=fractional-cto | ai-advisory
+    var offer = new URLSearchParams(window.location.search).get('offer');
+    if (offer) {
+      var radio = form.querySelector('input[data-offer="' + offer.replace(/[^a-z-]/gi, '') + '"]');
+      if (radio) radio.checked = true;
+    }
+
+    // Honeypot + time trap (client-side only; stops naive bots).
+    var loadedAt = Date.now();
+    form.addEventListener('submit', function (event) {
+      var hp = document.getElementById('contactCompanyUrl');
+      if ((hp && hp.value) || Date.now() - loadedAt < 3000) {
+        event.preventDefault();
+        return;
+      }
+      if (hp) hp.disabled = true; // don't send the honeypot to Capsule
+    });
+  })();
+</script>
