@@ -1,0 +1,113 @@
+{% comment %}
+  Support form for /support/. Same Capsule website-form endpoint and FORM_ID as
+  the contact form, same honeypot and time trap, TAG "Support" instead of "Website".
+
+  Capsule has no native subject or product field, so on submit the note is rewritten
+  to "Product: … / Subject: … / message". CUSTOMFIELD[Product] is sent as well.
+  TODO(jesse): create a "Product" list field in Capsule (Account Settings > Custom
+  Fields) with options exactly: HereNotes / Bout Fitness / Booty Babez /
+  Bout Labs consulting or other. A missing field is ignored.
+  TODO(jesse): confirm what a web-form lead creates in this account, and consider
+  a notification for TAG "Support". CAPTCHA is a Capsule-side setting.
+{% endcomment %}
+<form action="https://service.capsulecrm.com/service/newlead" method="post" id="supportForm">
+  <input type="hidden" name="FORM_ID" value="{{ site.capsule_webform_key }}">
+  <input type="hidden" name="COMPLETE_URL" value='{{ "/support/thanks/" | absolute_url }}'>
+  <input type="hidden" name="TAG" value="Support">
+
+  {% if jekyll.environment == "development" %}
+    <input type="hidden" name="DEVELOPER" value="TRUE"/>
+  {% endif %}
+
+  <!-- Honeypot: hidden from people and screen readers. Bots that fill every field get blocked. -->
+  <div class="inquiry-hp" aria-hidden="true">
+    <label for="supportCompanyUrl">Leave this field empty</label>
+    <input type="text" name="company_url" id="supportCompanyUrl" tabindex="-1" autocomplete="off">
+  </div>
+
+  <div class="row my-3 g-3">
+    <div class="col-md-6">
+      <label for="supportName" class="form-label">Name</label>
+      <input type="text" name="PERSON_NAME" class="form-control" id="supportName" autocomplete="name" required>
+    </div>
+    <div class="col-md-6">
+      <label for="supportEmail" class="form-label">Email</label>
+      <input type="email" name="EMAIL" class="form-control" id="supportEmail" autocomplete="email" required>
+    </div>
+  </div>
+
+  <div class="row my-3 g-3">
+    <div class="col-md-6">
+      <label for="supportProduct" class="form-label">Which product is this about?</label>
+      <select class="form-select" id="supportProduct" name="CUSTOMFIELD[Product]" required>
+        <option value="" selected disabled>Choose one&hellip;</option>
+        <option value="HereNotes" data-product="herenotes">HereNotes</option>
+        <option value="Bout Fitness" data-product="bout-fitness">Bout Fitness</option>
+        <option value="Booty Babez" data-product="booty-babez">Booty Babez</option>
+        <option value="Bout Labs consulting or other" data-product="other">Bout Labs consulting / other</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="supportSubject" class="form-label">Subject</label>
+      <!-- No name attribute on purpose: folded into NOTE by the script below. -->
+      <input type="text" class="form-control" id="supportSubject" maxlength="150" required>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <label for="supportMessage" class="form-label">Message</label>
+      <textarea name="NOTE" class="form-control" id="supportMessage" rows="6" aria-describedby="supportMessageHelp" required></textarea>
+      <div id="supportMessageHelp" class="form-text">
+        What happened, and what did you expect? Include your iPhone model and iOS version if it's a bug.
+        Please don&rsquo;t include passwords or the contents of your notes.
+      </div>
+    </div>
+  </div>
+
+  <p class="text-muted small">
+    We&rsquo;ll use your details only to reply and help. See our
+    <a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a>
+    (<a href="{{ '/herenotes/privacy/' | relative_url }}">HereNotes</a>).
+  </p>
+
+  <div class="row my-4">
+    <div class="col">
+      <input class="btn btn-primary btn-lg px-4" type="submit" value="Send to support">
+    </div>
+  </div>
+</form>
+
+<script>
+  (function () {
+    var form = document.getElementById('supportForm');
+    if (!form) return;
+
+    // Preselect the product from ?product=herenotes | bout-fitness | booty-babez | other
+    // (lets the app or App Store listing deep-link to /support/?product=herenotes).
+    var p = new URLSearchParams(window.location.search).get('product');
+    if (p) {
+      var opt = form.querySelector('option[data-product="' + p.replace(/[^a-z-]/gi, '') + '"]');
+      if (opt) opt.selected = true;
+    }
+
+    var loadedAt = Date.now();
+    form.addEventListener('submit', function (event) {
+      var hp = document.getElementById('supportCompanyUrl');
+      if ((hp && hp.value) || Date.now() - loadedAt < 3000) { // honeypot + time trap
+        event.preventDefault();
+        return;
+      }
+      if (hp) hp.disabled = true;
+
+      // Fold Product + Subject into the NOTE Capsule stores.
+      var note = document.getElementById('supportMessage');
+      var product = document.getElementById('supportProduct').value;
+      var subject = document.getElementById('supportSubject').value;
+      if (!note.dataset.folded) {
+        note.value = 'Product: ' + product + '\nSubject: ' + subject + '\n\n' + note.value;
+        note.dataset.folded = '1';
+      }
+    });
+  })();
+</script>

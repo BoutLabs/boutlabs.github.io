@@ -6,13 +6,16 @@ The `learnings-extractor` agent writes new entries to `## Pending review` after 
 
 ## Active
 
-### GA4 migration is overdue
-- **Symptom**: `_config.yml` still references `google_tracking_id: UA-143690680-1`
-- **Why it matters**: Universal Analytics properties were sunset by Google in
-  2023; the UA tag silently no-ops. Any "analytics aren't working" report
-  almost certainly traces back to this.
-- **Fix direction**: migrate to a GA4 measurement ID (or another analytics
-  provider) and update the include that injects the tracking snippet.
+### Cloudflare Web Analytics token is empty on purpose
+- **Symptom**: `cloudflare_analytics_token` in `_config.yml` is blank, so no
+  beacon is in the HTML. `/privacy/` already describes Cloudflare Web Analytics.
+- **Why it matters**: merging that page while the token is blank publishes a
+  policy for a tool the site is not running. www.boutlabs.com is not proxied,
+  so Cloudflare will not inject the beacon for you.
+- **How to apply**: paste the token from the Cloudflare dashboard. The include
+  is `_includes/cloudflare-analytics.html`. Do not add a Google tag back.
+  `rake test` fails if `googletagmanager`, `gtag(`, or `UA-143690680` shows
+  up in `_site/`.
 
 ### Master is production — no staging
 - **Symptom**: a merge to `master` is live on https://www.boutlabs.com within
@@ -34,4 +37,6 @@ The `learnings-extractor` agent writes new entries to `## Pending review` after 
 
 ## Archive
 
-(empty — Active entries rotate here after expiry)
+### GA4 migration is overdue (superseded 2026-11-18)
+- Universal Analytics `UA-143690680-1` was removed. The replacement is
+  Cloudflare Web Analytics, not GA4. See the active lesson above.

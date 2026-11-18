@@ -1,0 +1,7 @@
+{% comment %}
+  Cloudflare Web Analytics beacon. The token is public (it ships in the HTML).
+  Render nothing until cloudflare_analytics_token is set in _config.yml.
+{% endcomment %}
+{% if site.cloudflare_analytics_token and site.cloudflare_analytics_token != "" %}
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"{{ site.cloudflare_analytics_token }}"}'></script>
+{% endif %}

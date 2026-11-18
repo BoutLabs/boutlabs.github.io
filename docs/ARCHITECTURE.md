@@ -28,7 +28,8 @@ n/a — static site. The closest things to "state" are:
 - **Form state** — the contact form posts to Capsule CRM via a webform key
   (see `_config.yml#capsule_webform_key`). Capsule owns the submission state;
   we hand off and link to `thank-you.html`.
-- **Analytics** — Google Analytics (UA-143690680-1, see Lessons re: GA4 migration).
+- **Analytics** — Cloudflare Web Analytics. The beacon renders only when
+  `cloudflare_analytics_token` is set in `_config.yml`.
 
 ## Persistence
 
@@ -42,8 +43,8 @@ n/a — single-pass static build.
 ## Cross-cutting concerns
 
 - **Logging**: n/a — static site. CI logs go to GitHub Actions.
-- **Analytics**: Google Analytics tracking ID lives in `_config.yml`; injected
-  via `_includes/google-analytics.html` (or equivalent).
+- **Analytics**: `cloudflare_analytics_token` in `_config.yml`, injected by
+  `_includes/cloudflare-analytics.html` only when the token is non-blank.
 - **Error handling**: `404.html` is the only custom error page; the rest is
   whatever GitHub Pages returns by default.
 - **Feature flags**: none — change ships immediately on merge.

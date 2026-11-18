@@ -149,7 +149,7 @@ marketing:
       approval_required: true
 
   analytics:
-    backends: []   # GA still on UA-143690680-1 (sunset); GA4 migration pending — see docs/LESSONS.md
+    backends: []   # Cloudflare Web Analytics chosen; token not set (cloudflare_analytics_token in _config.yml). Not GA4.
 
   goals:
     primary_metric: ""         # TBD — flagged at bootstrap; fill before running strategist

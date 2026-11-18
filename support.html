@@ -1,0 +1,59 @@
+---
+layout: default
+title: Support
+permalink: /support/
+suppress_cta: true
+description: >-
+  Get help with HereNotes, Bout Fitness, Booty Babez, or Bout Labs. Tell us
+  what's going on and we'll reply by email.
+---
+{% comment %}
+  App Store support URL for HereNotes: https://www.boutlabs.com/support
+{% endcomment %}
+<div class="container-wrapper text-container">
+  <div class="container py-5">
+    <div class="col-lg-8 mx-auto">
+      <div class="text-center pb-4">
+        <h1 class="display-5 fw-bold">Support</h1>
+        <p class="lead">
+          Something not working, or a question about one of our apps? Tell us below and we&rsquo;ll reply by email.
+          {% comment %}OPEN: confirm the response-time promise before publishing.{% endcomment %}
+          We aim to answer within two business days.
+        </p>
+        <p>
+          Prefer email? Write to <a href="mailto:jesse@boutlabs.com">jesse@boutlabs.com</a>.
+          Looking for a consulting conversation instead? Use the <a href="{{ '/contact-us/' | relative_url }}">contact page</a>.
+        </p>
+      </div>
+
+      {% include support-form.html %}
+
+      <hr class="my-5">
+
+      <h2 class="h4">Quick answers: HereNotes</h2>
+      <dl>
+        <dt>Where is my data?</dt>
+        <dd>On your iPhone. If you turn on iCloud Sync, it also lives in your own iCloud account. Bout Labs doesn&rsquo;t receive your notes, locations, or photos.</dd>
+
+        <dt>How do I delete a note?</dt>
+        <dd>Swipe a note in the list and choose delete. It&rsquo;s permanently removed after 30 days.</dd>
+
+        <dt>How do I delete my notes from iCloud?</dt>
+        <dd>
+          HereNotes 1.0 doesn&rsquo;t have a &ldquo;delete from iCloud&rdquo; button. On your iPhone, open Settings &rarr; [your name] &rarr; iCloud &rarr; Manage Account Storage &rarr; HereNotes &rarr; Delete Data.
+          {% comment %}OPEN: verify this path on current iOS before publishing.{% endcomment %}
+        </dd>
+
+        <dt>Privacy requests</dt>
+        <dd>Choose a product, put &ldquo;Privacy request&rdquo; in the subject, and tell us what you&rsquo;d like. See the privacy policy for your rights.</dd>
+      </dl>
+
+      <h2 class="h4 mt-5">Privacy policies</h2>
+      <ul>
+        <li><a href="{{ '/privacy/' | relative_url }}">Bout Labs website privacy policy</a></li>
+        <li><a href="{{ '/herenotes/privacy/' | relative_url }}">HereNotes privacy policy</a></li>
+        {% comment %}Add when ready: /boutfitness/privacy/ and /bootybabez/privacy/ (not ready; do not link yet).{% endcomment %}
+      </ul>
+    </div>
+  </div>
+</div>
