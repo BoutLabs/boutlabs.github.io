@@ -305,6 +305,93 @@ button:focus,
   }
 }
 
+// Long-form pages (privacy policies). Paragraphs stay on a readable measure;
+// tables use the full container and scroll sideways on a narrow screen.
+.prose {
+  h1 {
+    font-weight: 700;
+    font-size: calc(1.425rem + 2.1vw);
+    margin-bottom: 1rem;
+
+    @media (min-width: 1200px) {
+      font-size: 3rem;
+    }
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p,
+  ul,
+  ol,
+  blockquote {
+    max-width: 42rem;
+  }
+
+  li,
+  td,
+  th {
+    font-family: Adelle;
+  }
+
+  li {
+    margin-bottom: 0.35rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 1.5rem;
+    font-size: 0.92rem;
+    line-height: 1.45;
+
+    // On a phone, keep words intact and scroll the table sideways.
+    @media (max-width: 767.98px) {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  th,
+  td {
+    border: 1px solid rgba($dark, 0.18);
+    padding: 0.5rem 0.65rem;
+    vertical-align: top;
+    text-align: left;
+
+    @media (max-width: 767.98px) {
+      min-width: 9rem;
+    }
+  }
+
+  th {
+    background-color: rgba($primary, 0.06);
+    font-weight: 600;
+  }
+
+  code {
+    overflow-wrap: anywhere;
+  }
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+}
+
 .project-body {
   font-family: Adelle;
   line-height: 1.6;

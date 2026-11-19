@@ -225,8 +225,11 @@ Format rules:
   in flight; check with the human before reviving one.
 - **The site has a Capsule CRM webform key in `_config.yml`** — that's
   intentional and public-safe (it's a form ID, not a secret).
-- **Google Analytics UA-143690680-1** is still wired up in `_config.yml`;
-  UA properties were sunset in 2023 — there's a latent task to migrate to GA4.
+- **Analytics is Cloudflare Web Analytics, token still empty.** The beacon
+  renders only when `cloudflare_analytics_token` in `_config.yml` is set.
+  Universal Analytics (`UA-143690680-1`) was removed. Don't put it back.
+  www is not proxied through Cloudflare, so the beacon is not injected
+  automatically.
 
 <!-- hypeman:campaign-loop:start v=1 -->
 ## Marketing & promotion (hypeman)

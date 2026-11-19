@@ -9,7 +9,9 @@ will reference this when interpreting issue bodies or PR descriptions.)
 
 ## Technical terms
 
-- **Capsule** — Capsule CRM; receives contact-form submissions via webform key
+- **Capsule** — Capsule CRM; receives contact-form and support-form submissions via webform key
+- **Cloudflare Web Analytics** — cookieless beacon; token in `_config.yml`; omitted when blank
+- **privacy shared core** — `_includes/privacy-shared-core.md`, included by every published privacy page
 - **html-proofer** — link/asset checker run by `bundle exec rake test`
 - **minima** — the Jekyll theme this site is built on (`~> 2.0`)
 
