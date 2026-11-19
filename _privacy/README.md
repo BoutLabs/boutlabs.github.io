@@ -33,6 +33,6 @@ python3 _privacy/sync-shared.py --diff     # --check, plus a diff
 
 `bundle exec rake test` runs `--check`.
 
-Counsel notes and `[OPEN]` items are not in the include. They are listed in `OPEN-ITEMS.md` and in the pull request that added these pages. The version line inside the include still says `0.3-draft` until that review is done.
+Counsel notes and `[OPEN]` items are not in the include. They are listed in `OPEN-ITEMS.md` and in the pull request that added these pages. The version line inside the include says `0.4-draft` (contact model change, Nov 19, 2026) until that review is done.
 
 The inactive HereNotes analytics paragraph (PostHog) is not in the repo. It stays unpublished until that feature actually ships.

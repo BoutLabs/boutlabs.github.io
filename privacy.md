@@ -9,11 +9,13 @@ description: >-
 
 # Bout Labs Privacy Policy
 
-**Effective date:** November 18, 2026 · **Last updated:** November 18, 2026
+**Effective date:** November 19, 2026 · **Last updated:** November 19, 2026
 
 ## About this page
 
 This page explains how Bout Labs, LLC handles personal information when you visit **boutlabs.com**, contact us, or ask for support through it. App privacy pages use the same standard terms, at the bottom of this page.
+
+**How to reach us:** use the [support form](/support/) or the [contact form](/contact-us/), or email **privacy@boutlabs.com**.
 
 * [HereNotes privacy policy](/herenotes/privacy/)
 * [Support](/support/)
@@ -37,7 +39,7 @@ If you use the support form we receive your **name**, **email**, the **product**
 
 * **Please don't send** passwords, the contents of your notes, payment details, or health information. We don't need them to help you.
 * How long we keep support requests is in section 6 of the standard terms below.
-* You can also email us at jesse@boutlabs.com; the same retention applies.
+* You can also email us at privacy@boutlabs.com; the same retention applies.
 
 ### 3. Website analytics (Cloudflare Web Analytics)
 We use **Cloudflare Web Analytics** to see how many people visit boutlabs.com, which pages they read, and how fast pages load. Cloudflare, Inc. acts as our service provider.
@@ -59,7 +61,7 @@ The site is hosted on **GitHub Pages** (GitHub, Inc., a Microsoft company). GitH
 DNS for boutlabs.com is hosted at Cloudflare. Pages on **www.boutlabs.com** are served by GitHub and do not pass through Cloudflare's proxy, so a normal page view is not a Cloudflare edge request. A request to the bare domain **boutlabs.com** (without www) is redirected to www by a Namecheap forwarder that runs on Cloudflare. Cloudflare receives the IP address of that redirect request.
 
 ### 6. Email
-If you email jesse@boutlabs.com we receive your address and message. Our email runs on Google Workspace. Retention is in section 6 of the standard terms below.
+If you email privacy@boutlabs.com we receive your address and message. Our email runs on Google Workspace. Retention is in section 6 of the standard terms below.
 
 ## Cookies, consent, and your choices on boutlabs.com
 

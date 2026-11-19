@@ -40,3 +40,15 @@ Newest entries at the top.
 **Trip-wire**: If the beacon, Adobe Fonts, or a future scheduling widget starts setting cookies or sharing data for ads, the "no banner" claim on `/privacy/` has to be rewritten.
 
 ---
+
+## 2026-11-19 — Per-product contact model, city-only address
+
+**Context**: The privacy core hard-coded a personal email address and a street address. County Records Atlas now uses a contact form with no published email.
+
+**Decision**: The shared core (now 0.4-draft) points to "the contact method" in each product section and prints only "Tampa, Florida". The apps (HereNotes, Bout Fitness, Booty Babez) and boutlabs.com use the support form plus `privacy@boutlabs.com`. County Records Atlas uses its own `/contact/` form only.
+
+**Why**: Jesse approved it. A form-only channel is fine where GDPR and CCPA are unlikely to apply (County Records Atlas); the apps and this site keep an email address next to the form, which is the safer default for products that reach EU or California users.
+
+**Trip-wire**: `privacy@boutlabs.com` must exist before merge. Any commercial newsletter needs a real postal address first.
+
+---

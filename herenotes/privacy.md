@@ -9,7 +9,7 @@ description: >-
 
 # HereNotes Privacy Policy
 
-**Effective date:** November 18, 2026 · **Last updated:** November 18, 2026
+**Effective date:** November 19, 2026 · **Last updated:** November 19, 2026
 
 ## About this page
 
@@ -58,7 +58,7 @@ Your notes are kept in the app's protected storage on your device (iOS file prot
 * Because Bout Labs holds none of your HereNotes data, requests to access, correct, or delete it are handled through the app and your Apple account. If you write to us, we'll explain how, and delete anything you've sent us directly.
 
 ### Support
-Questions or help: **jesse@boutlabs.com**. Support page and form: **https://www.boutlabs.com/support**. If you email us or use the support form, we receive your email address, name, and what you write. We keep support requests while your request is active and then for up to three years after our last contact (see section 6 below), longer only where needed for legal claims or obligations.
+**How to reach us:** use the support form at **https://www.boutlabs.com/support**, or email **privacy@boutlabs.com**. If you email us or use the support form, we receive your email address, name, and what you write. We keep support requests while your request is active and then for up to three years after our last contact (see section 6 below), longer only where needed for legal claims or obligations.
 
 ### Children
 HereNotes is not directed to children and collects no personal data from anyone. It is distributed with a general-audience age rating, not in Apple's Kids category.

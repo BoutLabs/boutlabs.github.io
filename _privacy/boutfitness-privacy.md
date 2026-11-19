@@ -11,18 +11,18 @@
 
 [OPEN: audit the iPhone app (SDKs, permissions, backends, accounts, deletion) and write this section. Also complete the App Store privacy label / Data Safety answers.]
 
-<!-- shared-core-version: 0.3-draft -->
-<!-- shared-core-date: 2026-11-18 -->
-<!-- BEGIN SHARED CORE v0.3-draft (2026-11-18) - DO NOT EDIT BETWEEN MARKERS. Canonical file: _includes/privacy-shared-core.md. Pages include this file. After editing it, run _privacy/sync-shared.py so unpublished stubs catch up. -->
+<!-- shared-core-version: 0.4-draft -->
+<!-- shared-core-date: 2026-11-19 -->
+<!-- BEGIN SHARED CORE v0.4-draft (2026-11-19) - DO NOT EDIT BETWEEN MARKERS. Canonical file: _includes/privacy-shared-core.md. Pages include this file. After editing it, run _privacy/sync-shared.py so unpublished stubs catch up. -->
 ## Bout Labs standard privacy terms
 
-*These terms are the same on every Bout Labs privacy page. They apply together with the product-specific section of this page. If the two ever conflict, the product-specific section controls for that product or site. Standard terms version 0.3-draft, dated November 18, 2026.*
+*These terms are the same on every Bout Labs privacy page. They apply together with the product-specific section of this page. If the two ever conflict, the product-specific section controls for that product or site. Standard terms version 0.4-draft, dated November 19, 2026.*
 
 ### 1. Who we are
 
-"Bout Labs," "we," "us," and "our" mean **Bout Labs, LLC**, 1212 E Whiting St #407, Tampa, FL 33602, United States.
+"Bout Labs," "we," "us," and "our" mean **Bout Labs, LLC**, Tampa, Florida, United States.
 
-**Privacy contact:** Jesse Curry, **jesse@boutlabs.com**.
+**Privacy contact:** Jesse Curry, through the contact method in section 14.
 
 For GDPR and UK GDPR purposes, Bout Labs is the "controller" of personal data we handle for our own purposes (for example, messages you send us). Where a product is built so that your data stays on your device or in your own cloud account and never reaches us, we do not receive or control that data, and the product section says so.
 
@@ -33,7 +33,7 @@ This policy covers personal information we collect or handle through the Bout La
 ### 3. Information we collect
 
 * **What this product or site collects** is described in the product-specific section of this page.
-* **Information you send us directly:** if you email us or write to us for support, we receive your email address, any name you give us, and what you write or attach.
+* **Information you send us directly:** if you contact us (through a contact form, by email, or otherwise) or write to us for support, we receive your email address, any name you give us, and what you write or attach.
 * **Information we receive automatically** is described in the product-specific section (for example, website analytics).
 
 We do not knowingly collect sensitive personal information (for example precise location, health data, or biometric data) on our own servers unless the product section says so.
@@ -58,7 +58,7 @@ We keep personal information only as long as needed for the purposes described, 
 
 ### 7. Security
 
-We use reasonable technical and organizational measures that fit the data we hold, including encrypted connections (HTTPS/TLS), access controls on our accounts and systems, and limiting access to service providers who need it. No system is perfectly secure. If you think your information has been compromised, please email jesse@boutlabs.com.
+We use reasonable technical and organizational measures that fit the data we hold, including encrypted connections (HTTPS/TLS), access controls on our accounts and systems, and limiting access to service providers who need it. No system is perfectly secure. If you think your information has been compromised, please tell us using the contact method in section 14.
 
 ### 8. International transfers
 
@@ -67,7 +67,7 @@ Bout Labs is based in the United States. Our service providers may process infor
 ### 9. Your rights and choices
 
 #### 9.1 Everyone
-You can ask us what personal information we hold about you, ask us to correct or delete it, or ask us to stop contacting you. Email **jesse@boutlabs.com**. We will respond within the time required by law, generally within 30 to 45 days. We may need to verify your identity first.
+You can ask us what personal information we hold about you, ask us to correct or delete it, or ask us to stop contacting you. Use the contact method in section 14. We will respond within the time required by law, generally within 30 to 45 days. We may need to verify your identity first.
 
 #### 9.2 People in the EEA, UK, and Switzerland (GDPR / UK GDPR)
 Our legal bases for processing, depending on the context, are: your **consent** (where we ask for it); our **legitimate interests** in responding to inquiries and running, securing, and improving our sites and products (balanced against your rights); **steps at your request before a contract**, and **contract**; and **legal obligation**.
@@ -77,7 +77,7 @@ You have the right to **access** your personal data, have it **corrected**, have
 #### 9.3 California and other U.S. states (CCPA/CPRA and similar laws)
 Residents of California, and of other states with comprehensive privacy laws, may have the right to **know/access** what personal information we collect, use, and disclose; **delete** it; **correct** it; **opt out of the sale or sharing** of personal information and of targeted advertising; **limit** the use of sensitive personal information; and **not be discriminated against** for using these rights. You can use an authorized agent; we may need to verify your identity.
 
-* To make a request, email **jesse@boutlabs.com** with the subject "Privacy request." If we deny a request, you can appeal by replying to our decision email.
+* To make a request, use the contact method in section 14 and start your message with "Privacy request." If we deny a request, you can appeal by contacting us the same way and starting your message with "Privacy appeal." We will answer by email at the address you gave us.
 * **Sale and sharing:** we do not sell personal information for money. Whether a given site or product "shares" personal information for cross-context behavioral advertising is stated in its section. Where a page lists analytics or advertising technologies and says an opt-out applies, you can opt out using the control described there, or with a browser signal such as **Global Privacy Control**, which we honor where the page says so.
 * **Categories:** the categories of personal information we collect, the purposes, and the recipients for each product or site are in its section. We have no actual knowledge that we sell or share the personal information of consumers under 16.
 
@@ -87,7 +87,7 @@ Our apps do not use cookies. Where our website or a product uses cookies or simi
 
 ### 11. Children
 
-Our sites and products are **not directed to children under 13** (or under 16 in the EEA and UK, where local law sets a higher age), and we do not knowingly collect personal information from children. If you believe a child has sent us personal information, email jesse@boutlabs.com and we will delete it. This is intended to be consistent with the U.S. Children's Online Privacy Protection Act (COPPA).
+Our sites and products are **not directed to children under 13** (or under 16 in the EEA and UK, where local law sets a higher age), and we do not knowingly collect personal information from children. If you believe a child has sent us personal information, tell us using the contact method in section 14 and we will delete it. This is intended to be consistent with the U.S. Children's Online Privacy Protection Act (COPPA).
 
 ### 12. Links and third-party platforms
 
@@ -99,6 +99,7 @@ We may update this page. We will post the new version here with a new date, and 
 
 ### 14. Contact
 
-Questions, requests, or complaints: **jesse@boutlabs.com**<br>
-Bout Labs, LLC, 1212 E Whiting St #407, Tampa, FL 33602, United States
+Questions, requests, or complaints: use the contact method given in the product-specific section of this page (a contact form, an email address, or both).
+
+Bout Labs, LLC, Tampa, Florida, United States
 <!-- END SHARED CORE -->

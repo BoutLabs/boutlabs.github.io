@@ -48,6 +48,13 @@ Do not merge this to `master` until the items marked **before merge** are resolv
 - [ ] `booking_url` in `_config.yml` is empty. If a scheduling tool is added, it belongs on the privacy page. It would likely change the cookie answer.
 - [ ] The blog and RSS feed set no cookies of their own. True of the templates today; re-check if that changes.
 
+## Contact model (approved by Jesse, November 19, 2026)
+
+- [ ] **Prerequisite before merge:** `privacy@boutlabs.com` does not exist yet. Create it in the Google Workspace Admin console as an alternate email address on jcurry@boutlabs.com, or as a Group that delivers to jcurry@boutlabs.com and accepts external senders. Send a test message and confirm it arrives. `/privacy/`, `/herenotes/privacy/` and `/support/` name it.
+- [ ] Question for Jesse: the street address `1212 E Whiting St #407` is no longer printed on any page (the core says "Tampa, Florida"). Confirm that is intended and whether that address is the home address. It is still used as the App Store seller address (Apple shows address, phone and email for EU traders).
+- [ ] Before any commercial newsletter: add a real postal address (street address, USPS-registered PO box, or CMRA mailbox) to the core's Contact section and to every send. "Tampa, Florida" is not enough for CAN-SPAM.
+- [ ] Decide whether `privacy@` is also the general support email, or support stays form-only.
+
 ## Explicitly not done
 
 - [ ] Global Privacy Control / Do Not Track do **not** skip the beacon. The page does not claim they do. Add the skip before saying so.
